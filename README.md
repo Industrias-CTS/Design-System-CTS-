@@ -10,6 +10,7 @@ Sistema de diseño oficial de **Industrias CTS** — identidad visual unificada 
 |---------|-------------|
 | [`preview.html`](preview.html) | Guía de componentes UI — código, demos en vivo, buenas prácticas |
 | [`recursos.html`](recursos.html) | Descarga de logos, íconos de producto y tipografías |
+| [`login.html`](login.html) | Página de inicio de sesión — referencia visual standalone |
 
 ---
 
@@ -43,8 +44,9 @@ Design_System/
 │   ├── icons/
 │   │   ├── png/               # 20 productos × 4 variantes (principal, azul, blanco, gris)
 │   │   └── svg/               # SVGs por producto y variante
-│   └── logos/
-│       └── ...                # Logo CTS en 4 variantes × 4 formatos
+│   ├── logos/
+│   │   └── ...                # Logo CTS en 4 variantes × 4 formatos
+│   └── lean3.jpg              # Imagen de fondo para página de login
 ├── components/
 │   ├── Button.tsx
 │   ├── Typography.tsx
@@ -60,8 +62,9 @@ Design_System/
 ├── tokens/
 │   └── index.css              # CSS custom properties de marca
 ├── tailwind.config.js         # Extensión Tailwind con tokens CTS
-├── preview.html               # Guía de componentes (HTML estático)
-└── recursos.html              # Descarga de recursos (HTML estático)
+├── preview.html               # Guía de componentes (HTML estático, modo claro/oscuro)
+├── recursos.html              # Descarga de recursos (HTML estático, modo claro/oscuro)
+└── login.html                 # Página de login — referencia visual standalone
 ```
 
 ---
@@ -174,8 +177,17 @@ export default function Page() {
 
 ---
 
+## Modo claro / oscuro
+
+Todas las vistas HTML soportan modo claro y oscuro mediante `data-theme` en `<html>` y `localStorage`. El botón de toggle está en la barra de navegación de cada página.
+
+Los tokens que cambian según tema están definidos en bloques `[data-theme="light"]` y `[data-theme="dark"]` dentro de cada archivo HTML.
+
+---
+
 ## Versionado
 
 | Versión | Cambio |
 |---------|--------|
 | 1.0.0 | Lanzamiento inicial — tokens, componentes base, logos, íconos, guía de componentes, página de recursos |
+| 1.1.0 | Login standalone (`login.html`), soporte modo oscuro en todas las vistas, fuentes locales sin dependencias externas |
