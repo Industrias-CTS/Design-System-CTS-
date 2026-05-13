@@ -1,0 +1,28 @@
+{
+  "name": "cts-design-system",
+  "version": "1.0.0",
+  "description": "Sistema de diseño oficial de Industrias CTS",
+  "main": "components/index.ts",
+  "files": [
+    "tokens/",
+    "components/",
+    "docs/",
+    "tailwind.config.js"
+  ],
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "design-system",
+    "cts",
+    "react",
+    "tailwind"
+  ]
+}

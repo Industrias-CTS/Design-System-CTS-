@@ -1,0 +1,198 @@
+/* ==============================================
+   CTS DESIGN SYSTEM — DESIGN TOKENS
+   Industrias CTS | v1.0.0
+   ============================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap');
+
+/* Conthrax: fuente comercial — alojar archivos localmente */
+@font-face {
+  font-family: 'Conthrax';
+  src: url('../fonts/conthrax-sb.woff2') format('woff2'),
+       url('../fonts/conthrax-sb.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Conthrax';
+  src: url('../fonts/conthrax-bold.woff2') format('woff2'),
+       url('../fonts/conthrax-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Conthrax';
+  src: url('../fonts/conthrax-rg.woff2') format('woff2'),
+       url('../fonts/conthrax-rg.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+
+  /* ────────────────────────────────────────────
+     COLORES — MARCA CTS
+     ──────────────────────────────────────────── */
+
+  --cts-blue:         #0065BB;
+  --cts-blue-light:   #89AEDC;
+  --cts-blue-dark:    #004D9E;
+
+  --cts-gray:         #8F8F8F;
+  --cts-gray-light:   #C8C8C8;
+  --cts-gray-dark:    #646464;
+
+  --cts-white:        #FFFFFF;
+  --cts-black:        #1A1A1A;
+  --cts-bg-subtle:    #F4F7FB;
+
+  /* ────────────────────────────────────────────
+     COLORES — SEMÁNTICOS
+     ──────────────────────────────────────────── */
+
+  --cts-color-primary:        var(--cts-blue);
+  --cts-color-primary-hover:  var(--cts-blue-dark);
+  --cts-color-primary-light:  var(--cts-blue-light);
+
+  --cts-color-text:           var(--cts-black);
+  --cts-color-text-muted:     var(--cts-gray-dark);
+  --cts-color-text-disabled:  var(--cts-gray);
+
+  --cts-color-bg:             var(--cts-white);
+  --cts-color-bg-subtle:      var(--cts-bg-subtle);
+  --cts-color-border:         var(--cts-gray-light);
+  --cts-color-border-focus:   var(--cts-blue);
+
+  /* ────────────────────────────────────────────
+     COLORES — ESTADO / FEEDBACK
+     ──────────────────────────────────────────── */
+
+  --cts-success:          #16A34A;
+  --cts-success-light:    #DCFCE7;
+  --cts-warning:          #D97706;
+  --cts-warning-light:    #FEF3C7;
+  --cts-error:            #DC2626;
+  --cts-error-light:      #FEE2E2;
+  --cts-info:             var(--cts-blue-light);
+  --cts-info-light:       #EFF6FF;
+
+  /* ────────────────────────────────────────────
+     TIPOGRAFÍA — FAMILIAS
+     ──────────────────────────────────────────── */
+
+  --cts-font-display:  'Conthrax', 'Arial Narrow', Arial, sans-serif;
+  --cts-font-body:     'Titillium Web', Arial, sans-serif;
+
+  /* ────────────────────────────────────────────
+     TIPOGRAFÍA — TAMAÑOS
+     ──────────────────────────────────────────── */
+
+  --cts-text-xs:    0.75rem;    /* 12px */
+  --cts-text-sm:    0.875rem;   /* 14px */
+  --cts-text-base:  1rem;       /* 16px */
+  --cts-text-lg:    1.125rem;   /* 18px */
+  --cts-text-xl:    1.25rem;    /* 20px */
+  --cts-text-2xl:   1.5rem;     /* 24px */
+  --cts-text-3xl:   1.875rem;   /* 30px */
+  --cts-text-4xl:   2.25rem;    /* 36px */
+  --cts-text-5xl:   3rem;       /* 48px */
+  --cts-text-6xl:   3.75rem;    /* 60px */
+
+  /* ────────────────────────────────────────────
+     TIPOGRAFÍA — PESOS
+     ──────────────────────────────────────────── */
+
+  --cts-font-regular:   400;
+  --cts-font-semibold:  600;
+  --cts-font-bold:      700;
+
+  /* ────────────────────────────────────────────
+     TIPOGRAFÍA — INTERLINEADO
+     ──────────────────────────────────────────── */
+
+  --cts-leading-tight:    1.25;
+  --cts-leading-snug:     1.375;
+  --cts-leading-normal:   1.5;
+  --cts-leading-relaxed:  1.625;
+
+  /* ────────────────────────────────────────────
+     ESPACIADO — BASE 4px
+     ──────────────────────────────────────────── */
+
+  --cts-space-0:   0;
+  --cts-space-1:   0.25rem;   /*  4px */
+  --cts-space-2:   0.5rem;    /*  8px */
+  --cts-space-3:   0.75rem;   /* 12px */
+  --cts-space-4:   1rem;      /* 16px */
+  --cts-space-5:   1.25rem;   /* 20px */
+  --cts-space-6:   1.5rem;    /* 24px */
+  --cts-space-8:   2rem;      /* 32px */
+  --cts-space-10:  2.5rem;    /* 40px */
+  --cts-space-12:  3rem;      /* 48px */
+  --cts-space-16:  4rem;      /* 64px */
+  --cts-space-20:  5rem;      /* 80px */
+  --cts-space-24:  6rem;      /* 96px */
+
+  /* ────────────────────────────────────────────
+     BORDES — RADIO
+     ──────────────────────────────────────────── */
+
+  --cts-radius-none:  0;
+  --cts-radius-sm:    0.25rem;   /*  4px */
+  --cts-radius-md:    0.5rem;    /*  8px */
+  --cts-radius-lg:    0.75rem;   /* 12px */
+  --cts-radius-xl:    1rem;      /* 16px */
+  --cts-radius-2xl:   1.5rem;    /* 24px */
+  --cts-radius-full:  9999px;
+
+  /* ────────────────────────────────────────────
+     SOMBRAS — TONO AZUL CTS
+     ──────────────────────────────────────────── */
+
+  --cts-shadow-sm:  0 1px 2px 0 rgba(0, 77, 158, 0.08);
+  --cts-shadow-md:  0 4px 6px -1px rgba(0, 77, 158, 0.10),
+                    0 2px 4px -1px rgba(0, 77, 158, 0.06);
+  --cts-shadow-lg:  0 10px 15px -3px rgba(0, 77, 158, 0.10),
+                    0 4px 6px -2px rgba(0, 77, 158, 0.05);
+  --cts-shadow-xl:  0 20px 25px -5px rgba(0, 77, 158, 0.10),
+                    0 10px 10px -5px rgba(0, 77, 158, 0.04);
+
+  /* ────────────────────────────────────────────
+     Z-INDEX — CAPAS
+     ──────────────────────────────────────────── */
+
+  --cts-z-base:     0;
+  --cts-z-raised:   10;
+  --cts-z-overlay:  100;
+  --cts-z-modal:    200;
+  --cts-z-toast:    300;
+  --cts-z-tooltip:  400;
+
+  /* ────────────────────────────────────────────
+     TRANSICIONES
+     ──────────────────────────────────────────── */
+
+  --cts-duration-fast:    150ms;
+  --cts-duration-base:    200ms;
+  --cts-duration-slow:    300ms;
+  --cts-ease:             cubic-bezier(0.4, 0, 0.2, 1);
+  --cts-ease-in:          cubic-bezier(0.4, 0, 1, 1);
+  --cts-ease-out:         cubic-bezier(0, 0, 0.2, 1);
+
+  /* ────────────────────────────────────────────
+     GRID / LAYOUT
+     ──────────────────────────────────────────── */
+
+  --cts-container-sm:   640px;
+  --cts-container-md:   768px;
+  --cts-container-lg:   1024px;
+  --cts-container-xl:   1280px;
+  --cts-container-2xl:  1536px;
+
+  --cts-gutter-sm:  var(--cts-space-4);
+  --cts-gutter-md:  var(--cts-space-6);
+  --cts-gutter-lg:  var(--cts-space-8);
+}

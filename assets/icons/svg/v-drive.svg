@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 925.72 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: ConthraxSemiBold, 'Conthrax SemiBold';
+        font-size: 115.32px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        stroke-width: 0px;
+      }
+
+      .cls-3 {
+        fill: #0065b8;
+      }
+
+      .cls-5 {
+        letter-spacing: -.08em;
+      }
+
+      .cls-6 {
+        letter-spacing: -.05em;
+      }
+
+      .cls-4 {
+        fill: #8f8f8f;
+      }
+    </style>
+  </defs>
+  <path class="cls-4" d="m925.72,848.58v154.27c0,42.61-34.55,77.14-77.14,77.14H77.14c-42.6,0-77.14-34.53-77.14-77.14v-154.27h925.72Z"/>
+  <path class="cls-3" d="m925.72,77.14v771.44H0V77.14C0,34.55,34.55,0,77.14,0h771.44c42.6,0,77.14,34.55,77.14,77.14"/>
+  <path class="cls-2" d="m245.56,137.5c9.96,0,14.94,3.27,18.47,11.47l189.15,418.66c2.14,4.07,4.28,5.74,7.82,5.74h3.53c4.28,0,6.43-1.67,8.57-5.74l185.56-418.66c3.59-8.21,8.57-11.47,18.47-11.47h110.93c14.24,0,15.69,9.87,9.96,22.15l-218.27,479.23c-26.29,58.17-51.93,72.11-86.03,72.11h-49.79c-42.67,0-67.57-13.94-94.55-72.11L127.51,159.65c-5.67-12.27-3.53-22.15,9.96-22.15h108.09Z"/>
+  <text class="cls-1" transform="translate(194.58 997.61)"><tspan class="cls-5" x="0" y="0">V</tspan><tspan x="103.22" y="0">-Dri</tspan><tspan class="cls-6" x="356.23" y="0">v</tspan><tspan x="445.61" y="0">e</tspan></text>
+</svg>

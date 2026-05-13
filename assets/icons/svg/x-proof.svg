@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 925.72 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: 0em;
+      }
+
+      .cls-2 {
+        font-family: ConthraxSemiBold, 'Conthrax SemiBold';
+        font-size: 115.32px;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-3, .cls-4, .cls-5 {
+        stroke-width: 0px;
+      }
+
+      .cls-4 {
+        fill: #0065b8;
+      }
+
+      .cls-6 {
+        letter-spacing: 0em;
+      }
+
+      .cls-5 {
+        fill: #8f8f8f;
+      }
+
+      .cls-7 {
+        letter-spacing: -.1em;
+      }
+    </style>
+  </defs>
+  <path class="cls-5" d="m925.73,848.57v154.29c0,42.6-34.55,77.14-77.13,77.14H77.14c-42.6,0-77.14-34.55-77.14-77.14v-154.29h925.73Z"/>
+  <path class="cls-4" d="m925.73,77.13v771.44H0V77.13C0,34.53,34.55,0,77.14,0h771.45c42.59,0,77.13,34.53,77.13,77.13"/>
+  <text class="cls-2" transform="translate(181.3 997.62)"><tspan class="cls-7" x="0" y="0">X</tspan><tspan x="91.22" y="0">-</tspan><tspan class="cls-6" x="135.27" y="0">P</tspan><tspan class="cls-1" x="235.72" y="0">roof</tspan></text>
+  <path class="cls-3" d="m788.36,138.22c17.16,0,17.16,15.53,8.99,24.52l-237.8,251.69,251.69,271.31c8.17,8.99,8.17,24.52-8.99,24.52h-133.2c-16.34,0-22.88-4.09-31.05-13.89l-177.33-194.49-179.78,194.49c-8.17,9.81-15.53,13.89-31.05,13.89h-125.85c-17.16,0-17.98-16.34-9.81-24.52l256.6-277.03-228.81-245.97c-8.17-8.99-8.17-24.52,8.99-24.52h133.2c15.53,0,22.88,4.09,31.05,13.89l156.9,171.61,159.35-171.61c7.35-9.81,14.71-13.89,30.24-13.89h126.66Z"/>
+</svg>
