@@ -4,15 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CTS Design System — Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-@font-face{font-family:'Conthrax';src:url('assets/fonts/conthrax/conthrax-light.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap}
-@font-face{font-family:'Conthrax';src:url('assets/fonts/conthrax/conthrax-regular.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Conthrax';src:url('assets/fonts/conthrax/conthrax-semibold.otf') format('opentype');font-weight:600;font-style:normal;font-display:swap}
-@font-face{font-family:'Conthrax';src:url('assets/fonts/conthrax/conthrax-bold.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap}
-@font-face{font-family:'Titillium Web';src:url('assets/fonts/titillium/TitilliumWeb-Light.ttf') format('truetype');font-weight:300;font-style:normal;font-display:swap}
-@font-face{font-family:'Titillium Web';src:url('assets/fonts/titillium/TitilliumWeb-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:'Titillium Web';src:url('assets/fonts/titillium/TitilliumWeb-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap}
-@font-face{font-family:'Titillium Web';src:url('assets/fonts/titillium/TitilliumWeb-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
 /* ══ TOKENS DE MARCA (fijos) ══════════════════ */
 :root {
   --cts-blue:       #0065BB;
@@ -68,17 +61,17 @@
 
 /* ══ MODO OSCURO ══════════════════════════════ */
 [data-theme="dark"] {
-  --bg-page:    #0B1525;
-  --bg-surface: #142237;
-  --bg-alt:     #1A2B40;
-  --bg-input:   #142237;
-  --bg-sidebar: #0B1525;
-  --bg-topbar:  #0B1525;
+  --bg-page:    #C7E3FF;
+  --bg-surface: #283D63;
+  --bg-alt:     #192945;
+  --bg-input:   #1C2D4D;
+  --bg-sidebar: #283D63;
+  --bg-topbar:  #283D63;
 
   --tx-primary:  #E2ECF8;
-  --tx-secondary:#7A9DBE;
-  --tx-muted:    #3D5A78;
-  --tx-disabled: #1E3A5F;
+  --tx-secondary:#97C9F7;
+  --tx-muted:    #9FB6CC;
+  --tx-disabled: #70757D;
 
   --bd:          #1E3252;
   --bd-focus:    #1A7AD4;
@@ -87,8 +80,8 @@
   --sh-md: 0 4px 8px rgba(0,0,0,.5),0 2px 4px rgba(0,0,0,.3);
   --sh-lg: 0 10px 20px rgba(0,0,0,.6),0 4px 8px rgba(0,0,0,.4);
 
-  --nav-bg:   #06101E;
-  --hero-a:   #040C1C; --hero-b:  #07152B; --hero-c: #0B2040;
+  --nav-bg:   #283D63;
+  --hero-a:   #C7E3FF; --hero-b:  #1E2E4A; --hero-c: #283D63;
   color-scheme: dark;
 }
 
@@ -164,12 +157,12 @@ section{margin-bottom:52px;scroll-margin-top:70px}
   padding-bottom:9px;margin-bottom:24px;
   display:flex;align-items:center;gap:10px;
 }
-[data-theme="dark"] .sec-title{color:var(--cts-blue-light);border-color:var(--cts-blue-light)}
+[data-theme="dark"] .sec-title{color:#1A2A47;border-color:#1A2A47}
 .sec-title .n{
   background:var(--cts-blue);color:#fff;
   font-size:.68rem;padding:2px 8px;border-radius:var(--r-full);
 }
-[data-theme="dark"] .sec-title .n{background:var(--cts-blue-light);color:var(--cts-blue-dark)}
+[data-theme="dark"] .sec-title .n{background:#1A2A47;color:#C7E3FF}
 
 .g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
 .g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
@@ -530,7 +523,7 @@ input:disabled{background:var(--bg-alt);color:var(--tx-muted);cursor:not-allowed
 .fake-select:hover{border-color:var(--cts-blue)}
 .fake-select svg{position:absolute;right:10px;color:var(--tx-muted)}
 .filter-bar{
-  display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
   padding:14px 16px;background:var(--bg-surface);
   border:1px solid var(--bd);border-radius:var(--r-lg);
   box-shadow:var(--sh-sm);
@@ -598,6 +591,49 @@ input:disabled{background:var(--bg-alt);color:var(--tx-muted);cursor:not-allowed
 }
 .ph-title{font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:var(--tx-primary)}
 .ph-sub{font-size:.82rem;color:var(--tx-secondary);margin-top:2px}
+
+/* ══ LOGIN ════════════════════════════════════ */
+.login-screen{display:grid;grid-template-columns:1fr 420px;min-height:520px;border-radius:0 0 var(--r-lg) var(--r-lg);overflow:hidden}
+.login-brand{
+  position:relative;
+  background:linear-gradient(135deg,#0A1525 0%,#1A2A47 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:40px;gap:0;
+}
+.login-brand::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(8,14,28,.78) 0%,rgba(8,14,28,.45) 100%);pointer-events:none}
+.login-brand-inner{position:relative;z-index:1}
+.login-copy{position:relative;z-index:1;font-size:.72rem;color:rgba(255,255,255,.4);margin-top:32px}
+.login-app-badge{display:inline-flex;align-items:center;gap:10px;margin-bottom:28px}
+.login-app-icon{width:36px;height:36px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.login-app-name{font-family:var(--font-display);font-size:.9rem;font-weight:700;color:#fff;letter-spacing:.04em}
+.login-headline{font-family:var(--font-display);font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:700;color:#fff;line-height:1.18;margin-bottom:12px}
+.login-desc{font-size:.84rem;color:rgba(255,255,255,.6);line-height:1.55;max-width:360px}
+.login-form-col{background:#090E1D;display:flex;align-items:center;justify-content:center;padding:48px 40px}
+.login-card{width:100%;max-width:340px;display:flex;flex-direction:column;gap:0}
+.login-head{text-align:center;margin-bottom:28px}
+.login-title{font-family:var(--font-display);font-size:1.45rem;font-weight:700;color:#fff;margin-bottom:8px}
+.login-sub{font-size:.82rem;color:var(--cts-gray);line-height:1.5}
+.login-form{display:flex;flex-direction:column;gap:16px}
+.login-form .field{gap:6px}
+.login-form .field label{font-size:.78rem;font-weight:600;color:#9EB4CC}
+.login-form input{background:#111B2E;border:1px solid #1E3050;color:#E2ECF8;border-radius:var(--r-md);padding:10px 14px;font-size:.88rem;font-family:var(--font-body);width:100%;box-sizing:border-box;transition:border-color .15s}
+.login-form input:focus{outline:none;border-color:var(--cts-blue)}
+.login-form input::placeholder{color:#3A5070}
+.login-pass-wrap{position:relative}
+.login-pass-wrap input{padding-right:42px}
+.login-eye{position:absolute;right:0;top:0;height:100%;width:40px;background:none;border:none;color:#3A5070;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:color .15s}
+.login-eye:hover{color:#9EB4CC}
+.login-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.login-check{display:flex;align-items:center;gap:6px;font-size:.78rem;color:#9EB4CC;cursor:pointer;user-select:none}
+.login-check input{width:auto;margin:0;accent-color:var(--cts-blue)}
+.login-forgot{font-size:.78rem;color:var(--cts-blue-light);text-decoration:none;transition:color .15s}
+.login-forgot:hover{color:#fff}
+.login-submit{width:100%;padding:11px;background:var(--cts-blue);color:#fff;border:none;border-radius:var(--r-md);font-family:var(--font-display);font-size:.88rem;font-weight:700;letter-spacing:.04em;cursor:pointer;transition:background .15s;margin-top:4px}
+.login-submit:hover{background:var(--cts-blue-dark)}
+.login-terms{font-size:.7rem;color:#3A5070;text-align:center;line-height:1.5;margin-top:4px}
+.login-terms a{color:#5A7A9A;text-decoration:none}
+.login-terms a:hover{color:#9EB4CC}
+@media(max-width:720px){.login-screen{grid-template-columns:1fr}.login-brand{display:none}}
 
 /* ══ FOOTER ═══════════════════════════════════ */
 footer{
@@ -778,6 +814,7 @@ footer strong{color:#fff}
         <a href="#nav-comp">Navegación</a>
         <a href="#app-comp">App UI</a>
         <a href="#nav-adv">Nav Avanzada</a>
+        <a href="login.html">Login</a>
         <a href="recursos.html">Recursos</a>
       </div>
       <button id="toggle" title="Cambiar tema" aria-label="Cambiar tema">🌙</button>
@@ -882,28 +919,28 @@ footer strong{color:#fff}
           <div style="height:48px;background:var(--bg-page)"></div>
           <div style="padding:8px 10px;background:var(--bg-surface);border-top:1px solid var(--bd)">
             <div class="sw-name">bg-page</div>
-            <div class="sw-hex">Light: #D0DCF0 · Dark: #0B1525</div>
+            <div class="sw-hex">Light: #D0DCF0 · Dark: #C7E3FF</div>
           </div>
         </div>
         <div style="border-radius:var(--r-md);overflow:hidden;border:1px solid var(--bd)">
           <div style="height:48px;background:var(--bg-surface)"></div>
           <div style="padding:8px 10px;background:var(--bg-surface);border-top:1px solid var(--bd)">
             <div class="sw-name">bg-surface</div>
-            <div class="sw-hex">Light: #FFFFFF · Dark: #142237</div>
+            <div class="sw-hex">Light: #FFFFFF · Dark: #283D63</div>
           </div>
         </div>
         <div style="border-radius:var(--r-md);overflow:hidden;border:1px solid var(--bd)">
           <div style="height:48px;background:var(--bg-alt)"></div>
           <div style="padding:8px 10px;background:var(--bg-surface);border-top:1px solid var(--bd)">
             <div class="sw-name">bg-alt</div>
-            <div class="sw-hex">Light: #EEF4FB · Dark: #1A2B40</div>
+            <div class="sw-hex">Light: #EEF4FB · Dark: #192945</div>
           </div>
         </div>
         <div style="border-radius:var(--r-md);overflow:hidden;border:1px solid var(--bd)">
           <div style="height:48px;background:var(--nav-bg)"></div>
           <div style="padding:8px 10px;background:var(--bg-surface);border-top:1px solid var(--bd)">
             <div class="sw-name">nav-bg</div>
-            <div class="sw-hex">Light: #0065BB · Dark: #06101E</div>
+            <div class="sw-hex">Light: #0065BB · Dark: #283D63</div>
           </div>
         </div>
       </div>
@@ -1169,10 +1206,9 @@ footer strong{color:#fff}
           <span style="font-size:.66rem;font-weight:600;visibility:hidden;user-select:none" aria-hidden="true">·</span>
           <button class="filter-btn">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
-              Filtros
+            Filtros
           </button>
         </div>
-        
         <div style="display:flex;flex-direction:column;gap:2px">
           <span style="font-size:.66rem;color:var(--tx-muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em">Prioridad</span>
           <div class="select-wrap">
@@ -1370,7 +1406,7 @@ footer strong{color:#fff}
 
   <!-- Field sections -->
   <div class="card">
-    <div class="ch"><h3>Secciones de campos</h3><p>Tablas de información con etiqueta y valor</p></div>
+    <div class="ch"><h3>Secciones de campos</h3><p>Ejemplo de vista de detalle con múltiples secciones</p></div>
     <div class="cb">
       <div class="fs">
         <div class="fs-header">
@@ -1378,26 +1414,21 @@ footer strong{color:#fff}
           Sección A
         </div>
         <div class="fs-grid">
-          <div class="fs-field"><div class="fs-lbl">Nombre</div><div class="fs-val">Texto de ejemplo</div></div>
-          <div class="fs-field"><div class="fs-lbl">Código</div><div class="fs-val">EJ-0001</div></div>
-          <div class="fs-field"><div class="fs-lbl">Categoría</div><div class="fs-val">Texto de ejemplo</div></div>
-          <div class="fs-field"><div class="fs-lbl">Responsable</div><div class="fs-val">Nombre Apellido</div></div>
-          <div class="fs-field"><div class="fs-lbl">Estado</div><div class="fs-val"><span class="badge bgsm bg-ok">Activo</span></div></div>
-          <div class="fs-field" style="border-right:none"><div class="fs-lbl">Prioridad</div><div class="fs-val"><span class="badge bgsm bg-media">Media</span></div></div>
+          <div class="fs-field"><div class="fs-lbl">Campo 1</div><div class="fs-val">Valor del campo</div></div>
+          <div class="fs-field"><div class="fs-lbl">Campo 2</div><div class="fs-val">Valor del campo</div></div>
+          <div class="fs-field"><div class="fs-lbl">Campo 3</div><div class="fs-val">Valor del campo</div></div>
+          <div class="fs-field"><div class="fs-lbl">Estado</div><div class="fs-val"><span class="badge bgsm bg-baja">Bajo</span></div></div>
+          <div class="fs-field" style="border-right:none"><div class="fs-lbl">Categoría</div><div class="fs-val"><span class="badge bgsm bg-err">Inactivo</span></div></div>
         </div>
       </div>
       <div class="fs">
-        <div class="fs-header">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
-          Sección B
-        </div>
+        <div class="fs-header">Sección B</div>
         <div class="fs-grid">
-          <div class="fs-field"><div class="fs-lbl">Campo 1</div><div class="fs-val">Valor de ejemplo</div></div>
-          <div class="fs-field"><div class="fs-lbl">Campo 2</div><div class="fs-val">Valor de ejemplo</div></div>
-          <div class="fs-field"><div class="fs-lbl">Campo 3</div><div class="fs-val">Valor de ejemplo</div></div>
-          <div class="fs-field"><div class="fs-lbl">Campo 4</div><div class="fs-val">Valor de ejemplo</div></div>
-          <div class="fs-field"><div class="fs-lbl">Campo 5</div><div class="fs-val">Valor de ejemplo</div></div>
-          <div class="fs-field" style="border-right:none"><div class="fs-lbl">Campo 6</div><div class="fs-val">Valor de ejemplo</div></div>
+          <div class="fs-field"><div class="fs-lbl">Campo 4</div><div class="fs-val">Valor del campo</div></div>
+          <div class="fs-field"><div class="fs-lbl">Campo 5</div><div class="fs-val">Valor del campo</div></div>
+          <div class="fs-field"><div class="fs-lbl">Campo 6</div><div class="fs-val">Valor del campo</div></div>
+          <div class="fs-field"><div class="fs-lbl">Campo 7</div><div class="fs-val">Valor del campo</div></div>
+          <div class="fs-field" style="border-right:none"><div class="fs-lbl">Campo 8</div><div class="fs-val">Valor del campo</div></div>
         </div>
       </div>
     </div>
@@ -1556,6 +1587,7 @@ footer strong{color:#fff}
 </section>
 
 </div>
+
 
 <footer><strong>CTS Design System</strong> · Industrias CTS · v1.0.0 · 2026</footer>
 

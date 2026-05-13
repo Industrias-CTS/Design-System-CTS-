@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio de sesión — CTS</title>
+  <style>
+@font-face{font-family:'Conthrax';src:url('assets/fonts/conthrax/conthrax-light.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Conthrax';src:url('assets/fonts/conthrax/conthrax-regular.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Conthrax';src:url('assets/fonts/conthrax/conthrax-semibold.otf') format('opentype');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Conthrax';src:url('assets/fonts/conthrax/conthrax-bold.otf') format('opentype');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'Titillium Web';src:url('assets/fonts/titillium/TitilliumWeb-Light.ttf') format('truetype');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Titillium Web';src:url('assets/fonts/titillium/TitilliumWeb-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Titillium Web';src:url('assets/fonts/titillium/TitilliumWeb-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Titillium Web';src:url('assets/fonts/titillium/TitilliumWeb-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+html,body{
+  height:100%;
+  font-family:'Titillium Web',Arial,sans-serif;
+  color:#fff;
+}
+
+/* ── NAV ─────────────────────────────────────── */
+.login-nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:#1A2A47;
+  box-shadow:0 1px 3px rgba(0,0,0,.3);
+}
+.login-nav-in{
+  max-width:1280px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:52px;
+}
+.nav-logo{
+  font-family:'Conthrax','Arial Narrow',Arial,sans-serif;
+  font-weight:700;font-size:.95rem;
+  color:#fff;letter-spacing:.04em;text-decoration:none;
+}
+.nav-links{display:flex;gap:2px}
+.nav-links a{
+  color:rgba(255,255,255,.75);text-decoration:none;
+  font-size:.78rem;font-weight:600;padding:5px 9px;
+  border-radius:6px;transition:background .15s,color .15s;
+  font-family:'Titillium Web',Arial,sans-serif;
+}
+.nav-links a:hover{background:rgba(255,255,255,.15);color:#fff}
+.nav-links a.active{color:#fff}
+.nav-r{display:flex;align-items:center;gap:8px}
+#nav-toggle{
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
+  color:#fff;cursor:pointer;width:34px;height:34px;
+  border-radius:50%;font-size:.95rem;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .15s;
+}
+#nav-toggle:hover{background:rgba(255,255,255,.25)}
+
+/* ── FONDO COMPLETO ──────────────────────────── */
+.login-root{
+  min-height:100vh;
+  padding-top:52px;
+  display:flex;
+  position:relative;
+  background-image:url('assets/lean3.jpg');
+  background-color:#0A1828;
+  background-size:cover;
+  background-position:calc(50% - 151px) center;
+}
+
+/* Overlay gradiente — igual que en la app React */
+.login-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to right,
+    rgba(5,12,28,0.60) 0%,
+    rgba(5,12,28,0.97) 70%,
+    rgba(5,12,28,1.00) 100%
+  );
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ── LIGHT ORBS decorativos ──────────────────── */
+.orb{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:0;
+  filter:blur(80px);
+  opacity:.18;
+}
+.orb-1{width:400px;height:400px;background:#2563eb;top:-80px;right:160px}
+.orb-2{width:300px;height:300px;background:#0065BB;bottom:60px;right:80px}
+.orb-3{width:220px;height:220px;background:#89AEDC;top:40%;right:420px;opacity:.10}
+
+/* ── CONTENIDO ───────────────────────────────── */
+.login-content{
+  position:relative;
+  z-index:1;
+  display:flex;
+  width:100%;
+  min-height:100vh;
+  align-items:center;
+}
+
+/* ── IZQUIERDA: branding ─────────────────────── */
+.login-brand{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-self:stretch;
+  padding:0 64px 112px 64px;
+}
+
+.login-app-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:32px;
+}
+.login-app-icon{
+  background:#fff;
+  border-radius:10px;
+  width:42px;height:42px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.login-app-name{
+  font-family:'Conthrax',Arial,sans-serif;
+  font-size:.95rem;font-weight:700;
+  color:#fff;letter-spacing:.04em;
+}
+
+.login-headline{
+  font-family:'Conthrax','Arial Narrow',Arial,sans-serif;
+  font-size:clamp(1.8rem,3vw,3rem);
+  font-weight:700;
+  color:#fff;
+  line-height:1.2;
+  margin-bottom:16px;
+}
+.login-desc{
+  font-size:.94rem;
+  color:rgba(255,255,255,.65);
+  line-height:1.6;
+  max-width:420px;
+}
+
+/* ── DERECHA: formulario ─────────────────────── */
+.login-form-col{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:32px;
+}
+
+.login-card{
+  width:100%;
+  max-width:460px;
+  padding:40px;
+  background:transparent;
+  color:#fff;
+}
+
+.login-head{text-align:center;margin-bottom:28px}
+.login-title{
+  font-family:'Conthrax','Arial Narrow',Arial,sans-serif;
+  font-size:1.45rem;font-weight:700;
+  color:#fff;margin-bottom:8px;
+}
+.login-sub{
+  font-size:.85rem;
+  color:#94a3b8;
+  line-height:1.5;
+}
+
+/* Formulario */
+.login-form{display:flex;flex-direction:column;gap:0}
+
+.field-label{
+  display:block;
+  font-size:.76rem;
+  color:#94a3b8;
+  margin-bottom:6px;
+}
+.field-row{
+  display:flex;justify-content:space-between;
+  align-items:center;margin-bottom:6px;
+}
+.field-row .field-label{margin-bottom:0}
+
+.forgot-link{
+  font-size:.76rem;
+  color:#3b82f6;
+  text-decoration:none;
+  transition:color .15s;
+}
+.forgot-link:hover{color:#93c5fd}
+
+/* Inputs */
+.login-input{
+  width:100%;
+  background:transparent;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:6px;
+  padding:11px 14px;
+  font-size:.9rem;
+  font-family:'Titillium Web',Arial,sans-serif;
+  color:#fff;
+  transition:border-color .15s,box-shadow .15s;
+  margin-bottom:16px;
+}
+.login-input:hover{border-color:#2563eb}
+.login-input:focus{
+  outline:none;
+  border-color:#2563eb;
+  border-width:2px;
+  box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
+.login-input::placeholder{color:rgba(255,255,255,.35)}
+
+/* Autofill dark */
+.login-input:-webkit-autofill,
+.login-input:-webkit-autofill:hover,
+.login-input:-webkit-autofill:focus{
+  -webkit-box-shadow:0 0 0 1000px rgba(10,20,40,.93) inset !important;
+  -webkit-text-fill-color:#fff !important;
+  caret-color:#fff;
+}
+
+/* Input contraseña + ojo */
+.pass-wrap{position:relative;margin-bottom:24px}
+.pass-wrap .login-input{margin-bottom:0;padding-right:46px}
+.eye-btn{
+  position:absolute;right:0;top:0;
+  height:100%;width:44px;
+  background:none;border:none;
+  color:#64748b;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:0 6px 6px 0;
+  transition:background .15s,color .15s;
+}
+.eye-btn:hover{background:rgba(255,255,255,.08);color:rgba(255,255,255,.8)}
+.eye-btn:focus{outline:none}
+
+/* Error */
+.login-error{
+  background:rgba(220,38,38,.15);
+  border:1px solid rgba(220,38,38,.4);
+  border-radius:6px;
+  color:#fca5a5;
+  font-size:.82rem;
+  padding:10px 14px;
+  margin-bottom:16px;
+  display:none;
+}
+.login-error.show{display:block}
+
+/* Botón */
+.submit-btn{
+  width:100%;
+  padding:13px;
+  background:#2563eb;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  font-family:'Titillium Web',Arial,sans-serif;
+  font-size:.95rem;font-weight:700;
+  cursor:pointer;
+  transition:background .15s;
+  margin-bottom:12px;
+}
+.submit-btn:hover{background:#1d4ed8}
+.submit-btn:active{transform:scale(.99)}
+
+/* Texto legal */
+.login-terms{
+  font-size:.72rem;
+  color:#64748b;
+  text-align:center;
+  line-height:1.55;
+}
+.login-terms a{color:#475569;text-decoration:none}
+.login-terms a:hover{color:#94a3b8}
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media(max-width:640px){
+  .login-brand{display:none}
+  .login-form-col{padding:24px 20px}
+  .login-card{padding:28px 20px}
+}
+  </style>
+</head>
+<body>
+
+<nav class="login-nav">
+  <div class="login-nav-in">
+    <a href="preview.html" class="nav-logo">CTS DESIGN SYSTEM</a>
+    <div class="nav-r">
+      <div class="nav-links">
+        <a href="preview.html#colors">Colores</a>
+        <a href="preview.html#typo">Tipo</a>
+        <a href="preview.html#spacing">Espaciado</a>
+        <a href="preview.html#buttons">Botones</a>
+        <a href="preview.html#inputs">Inputs</a>
+        <a href="preview.html#nav-comp">Navegación</a>
+        <a href="preview.html#app-comp">App UI</a>
+        <a href="preview.html#nav-adv">Nav Avanzada</a>
+        <a href="login.html" class="active">Login</a>
+        <a href="recursos.html">Recursos</a>
+      </div>
+      <button id="nav-toggle" title="Cambiar tema" aria-label="Cambiar tema">☀️</button>
+    </div>
+  </div>
+</nav>
+
+<div class="login-root">
+
+  <!-- Overlay gradiente -->
+  <div class="login-overlay"></div>
+
+  <!-- Light orbs decorativos -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="login-content">
+
+    <!-- ── Izquierda: branding ── -->
+    <div class="login-brand">
+
+      <div class="login-app-badge">
+        <div class="login-app-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <span class="login-app-name">Nombre de la página.</span>
+      </div>
+
+      <h1 class="login-headline">
+        La ingeniería del mañana,<br>gestionada hoy.
+      </h1>
+      <p class="login-desc">
+        Resumen del funcionamiento de la aplicación.
+      </p>
+
+    </div>
+
+    <!-- ── Derecha: formulario ── -->
+    <div class="login-form-col">
+      <div class="login-card">
+
+        <div class="login-head">
+          <h2 class="login-title">Inicio de sesión</h2>
+          <p class="login-sub">Ingresa tus credenciales para acceder a la plataforma</p>
+        </div>
+
+        <div id="login-error" class="login-error" role="alert"></div>
+
+        <form class="login-form" id="login-form" onsubmit="handleLogin(event)" novalidate>
+
+          <label class="field-label" for="email">Correo Electrónico</label>
+          <input id="email" name="email" type="email"
+                 class="login-input" placeholder="correo@cts.com"
+                 autocomplete="email" autofocus/>
+
+          <div class="field-row">
+            <label class="field-label" for="password">Contraseña</label>
+            <a href="#" class="forgot-link">¿Olvidaste tu contraseña?</a>
+          </div>
+          <div class="pass-wrap">
+            <input id="password" name="password" type="password"
+                   class="login-input" placeholder="••••••••"
+                   autocomplete="current-password"/>
+            <button type="button" class="eye-btn" aria-label="Mostrar contraseña"
+                    onclick="togglePass(this)">
+              <svg id="eye-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+
+          <button type="submit" class="submit-btn">Iniciar Sesión</button>
+
+          <p class="login-terms">
+            Al continuar, aceptas nuestros <a href="#">términos de servicio</a> y <a href="#">políticas de privacidad</a>.
+          </p>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function togglePass(btn) {
+  const input = document.getElementById('password');
+  const isPass = input.type === 'password';
+  input.type = isPass ? 'text' : 'password';
+  btn.querySelector('svg').innerHTML = isPass
+    ? '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>'
+    : '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+}
+
+function handleLogin(e) {
+  e.preventDefault();
+  const email    = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const errorEl  = document.getElementById('login-error');
+
+  if (!email || !password) {
+    errorEl.textContent = 'Por favor completa todos los campos.';
+    errorEl.classList.add('show');
+    return;
+  }
+
+  errorEl.classList.remove('show');
+  // Lógica de autenticación aquí
+  // onLogin(usuario)
+}
+</script>
+</body>
+</html>
