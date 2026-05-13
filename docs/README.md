@@ -70,13 +70,11 @@ Reemplazar o fusionar con `tailwind.config.js` del repo.
 
 ### 4. Fuentes
 
-**Titillium Web** — automática vía Google Fonts (ya en `tokens/index.css`).
+Ambas fuentes se sirven **localmente** desde `assets/fonts/` — sin dependencias externas.
 
-**Conthrax** — fuente comercial. Pasos:
-1. Licenciar en [Typodermic Fonts](https://www.typodermic.com)
-2. Convertir a `.woff2` y `.woff`
-3. Colocar en `public/fonts/` o `assets/fonts/`
-4. Las declaraciones `@font-face` ya están en `tokens/index.css`
+Copiar a `public/fonts/` en el proyecto Next.js y declarar `@font-face` en el CSS global apuntando a esas rutas. Ver ejemplo completo en el [README principal](../README.md#3-declarar-fuentes-locales).
+
+> **Conthrax** es fuente comercial. Requiere licencia de [Typodermic Fonts](https://www.typodermic.com) para uso en producción.
 
 ### 5. Usar componentes
 
