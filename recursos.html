@@ -109,15 +109,16 @@ section{margin-bottom:52px;scroll-margin-top:70px}
 /* TABS (navegación de categorías) */
 .res-tabs{display:flex;gap:0;border-bottom:2px solid var(--bd);margin-bottom:28px}
 .res-tab{display:flex;align-items:center;gap:6px;padding:10px 18px;font-size:.85rem;font-weight:600;color:var(--tx-primary);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:color .15s,border-color .15s;background:none;border-top:none;border-left:none;border-right:none;font-family:var(--font-body)}
-.res-tab:hover{color:var(--tx-primary)}
+.res-tab:hover{color:var(--cts-blue)}
 .res-tab.active{color:var(--cts-blue);border-bottom-color:var(--cts-blue)}
-[data-theme="dark"] .res-tab{color:#1A2A47}
+[data-theme="dark"] .res-tab{color:#283D63}
+[data-theme="dark"] .res-tab:hover{color:#004D9E}
 [data-theme="dark"] .res-tab.active{color:#0065BB;border-bottom-color:#0065BB}
 .res-panel{display:none}
 .res-panel.active{display:block}
 
 /* ASSETS — LOGOS */
-.logo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.logo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
 .logo-tile{border:1px solid var(--bd);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .15s}
 .logo-tile:hover{box-shadow:var(--sh-md);transform:translateY(-2px)}
 .logo-preview{height:90px;display:flex;align-items:center;justify-content:center;padding:16px}
@@ -187,45 +188,45 @@ footer strong{color:#fff}
   <div class="res-panel active" id="panel-logos">
     <div class="card" style="margin-bottom:18px">
       <div class="ch"><h3>Logos</h3><p>PNG · 4 variantes de color × 4 formatos</p></div>
-      <div class="cb" style="display:flex;flex-direction:column;gap:20px">
+      <div class="cb" style="display:flex;flex-direction:column;gap:30px ">
 
-        <div>
+        <div class="icon-product">
           <p class="sub">Solo isotipo</p>
-          <div class="logo-grid">
-            <div class="logo-tile"><div class="logo-preview" style="background:#F4F7FB"><img src="assets/logos/logo-cts-principal.png" alt="Principal"></div><div class="logo-info"><span class="logo-name">Principal</span><a class="dl-btn" href="assets/logos/logo-cts-principal.png" download>↓ PNG</a></div></div>
-            <div class="logo-tile"><div class="logo-preview" style="background:#EEF4FB"><img src="assets/logos/logo-cts-azul.png" alt="Azul"></div><div class="logo-info"><span class="logo-name">Azul</span><a class="dl-btn" href="assets/logos/logo-cts-azul.png" download>↓ PNG</a></div></div>
-            <div class="logo-tile"><div class="logo-preview" style="background:#0065BB"><img src="assets/logos/logo-cts-blanco.png" alt="Blanco"></div><div class="logo-info"><span class="logo-name">Blanco</span><a class="dl-btn" href="assets/logos/logo-cts-blanco.png" download>↓ PNG</a></div></div>
-            <div class="logo-tile"><div class="logo-preview" style="background:#F4F7FB"><img src="assets/logos/logo-cts-gris.png" alt="Gris"></div><div class="logo-info"><span class="logo-name">Gris</span><a class="dl-btn" href="assets/logos/logo-cts-gris.png" download>↓ PNG</a></div></div>
+          <div class="icon-variants">
+            <div class="logo-tile"><div class="logo-preview" style="background:#F4F7FB"><img src="assets/logos/logo-cts-principal.png" alt="Principal"></div><div class="logo-info"><span class="logo-name">Principal</span><div class="icon-btns"><a class="dl-btn" href="assets/logos/logo-cts-principal.png" download>PNG</a></div></div></div>
+            <div class="logo-tile"><div class="logo-preview" style="background:#EEF4FB"><img src="assets/logos/logo-cts-azul.png" alt="Azul"></div><div class="logo-info"><span class="logo-name">Azul</span><div class="icon-btns"><a class="dl-btn" href="assets/logos/logo-cts-azul.png" download>PNG</a></div></div></div>
+            <div class="logo-tile"><div class="logo-preview" style="background:#0065BB"><img src="assets/logos/logo-cts-blanco.png" alt="Blanco"></div><div class="logo-info"><span class="logo-name">Blanco</span><div class="icon-btns"><a class="dl-btn" href="assets/logos/logo-cts-blanco.png" download>PNG</a></div></div></div>
+            <div class="logo-tile"><div class="logo-preview" style="background:#F4F7FB"><img src="assets/logos/logo-cts-gris.png" alt="Gris"></div><div class="logo-info"><span class="logo-name">Gris</span><div class="icon-btns"><a class="dl-btn" href="assets/logos/logo-cts-gris.png" download>PNG</a></div></div></div>
           </div>
         </div>
 
-        <div>
+        <div class="icon-product">
           <p class="sub">Con slogan</p>
-          <div class="logo-grid">
-            <div class="logo-tile"><div class="logo-preview" style="background:#F4F7FB"><img src="assets/logos/logo-cts-slogan-principal.png" alt="Principal"></div><div class="logo-info"><span class="logo-name">Principal</span><a class="dl-btn" href="assets/logos/logo-cts-slogan-principal.png" download>↓ PNG</a></div></div>
-            <div class="logo-tile"><div class="logo-preview" style="background:#EEF4FB"><img src="assets/logos/logo-cts-slogan-azul.png" alt="Azul"></div><div class="logo-info"><span class="logo-name">Azul</span><a class="dl-btn" href="assets/logos/logo-cts-slogan-azul.png" download>↓ PNG</a></div></div>
-            <div class="logo-tile"><div class="logo-preview" style="background:#0065BB"><img src="assets/logos/logo-cts-slogan-blanco.png" alt="Blanco"></div><div class="logo-info"><span class="logo-name">Blanco</span><a class="dl-btn" href="assets/logos/logo-cts-slogan-blanco.png" download>↓ PNG</a></div></div>
-            <div class="logo-tile"><div class="logo-preview" style="background:#F4F7FB"><img src="assets/logos/logo-cts-slogan-gris.png" alt="Gris"></div><div class="logo-info"><span class="logo-name">Gris</span><a class="dl-btn" href="assets/logos/logo-cts-slogan-gris.png" download>↓ PNG</a></div></div>
+          <div class="icon-variants">
+            <div class="logo-tile"><div class="logo-preview" style="background:#F4F7FB"><img src="assets/logos/logo-cts-slogan-principal.png" alt="Principal"></div><div class="logo-info"><span class="logo-name">Principal</span><div class="icon-btns"><a class="dl-btn" href="assets/logos/logo-cts-slogan-principal.png" download>PNG</a></div></div></div>
+            <div class="logo-tile"><div class="logo-preview" style="background:#EEF4FB"><img src="assets/logos/logo-cts-slogan-azul.png" alt="Azul"></div><div class="logo-info"><span class="logo-name">Azul</span><div class="icon-btns"><a class="dl-btn" href="assets/logos/logo-cts-slogan-azul.png" download>PNG</a></div></div></div>
+            <div class="logo-tile"><div class="logo-preview" style="background:#0065BB"><img src="assets/logos/logo-cts-slogan-blanco.png" alt="Blanco"></div><div class="logo-info"><span class="logo-name">Blanco</span><div class="icon-btns"><a class="dl-btn" href="assets/logos/logo-cts-slogan-blanco.png" download>PNG</a></div></div></div>
+            <div class="logo-tile"><div class="logo-preview" style="background:#F4F7FB"><img src="assets/logos/logo-cts-slogan-gris.png" alt="Gris"></div><div class="logo-info"><span class="logo-name">Gris</span><div class="icon-btns"><a class="dl-btn" href="assets/logos/logo-cts-slogan-gris.png" download>PNG</a></div></div></div>
           </div>
         </div>
 
-        <div>
+        <div class="icon-product">
           <p class="sub">Con slogan + NIT</p>
-          <div class="logo-grid">
-            <div class="logo-tile"><div class="logo-preview" style="background:#F4F7FB"><img src="assets/logos/logo-cts-slogan-nit-principal.png" alt="Principal"></div><div class="logo-info"><span class="logo-name">Principal</span><a class="dl-btn" href="assets/logos/logo-cts-slogan-nit-principal.png" download>↓ PNG</a></div></div>
-            <div class="logo-tile"><div class="logo-preview" style="background:#EEF4FB"><img src="assets/logos/logo-cts-slogan-nit-azul.png" alt="Azul"></div><div class="logo-info"><span class="logo-name">Azul</span><a class="dl-btn" href="assets/logos/logo-cts-slogan-nit-azul.png" download>↓ PNG</a></div></div>
-            <div class="logo-tile"><div class="logo-preview" style="background:#0065BB"><img src="assets/logos/logo-cts-slogan-nit-blanco.png" alt="Blanco"></div><div class="logo-info"><span class="logo-name">Blanco</span><a class="dl-btn" href="assets/logos/logo-cts-slogan-nit-blanco.png" download>↓ PNG</a></div></div>
-            <div class="logo-tile"><div class="logo-preview" style="background:#F4F7FB"><img src="assets/logos/logo-cts-slogan-nit-gris.png" alt="Gris"></div><div class="logo-info"><span class="logo-name">Gris</span><a class="dl-btn" href="assets/logos/logo-cts-slogan-nit-gris.png" download>↓ PNG</a></div></div>
+          <div class="icon-variants">
+            <div class="logo-tile"><div class="logo-preview" style="background:#F4F7FB"><img src="assets/logos/logo-cts-slogan-nit-principal.png" alt="Principal"></div><div class="logo-info"><span class="logo-name">Principal</span><div class="icon-btns"><a class="dl-btn" href="assets/logos/logo-cts-slogan-nit-principal.png" download>PNG</a></div></div></div>
+            <div class="logo-tile"><div class="logo-preview" style="background:#EEF4FB"><img src="assets/logos/logo-cts-slogan-nit-azul.png" alt="Azul"></div><div class="logo-info"><span class="logo-name">Azul</span><div class="icon-btns"><a class="dl-btn" href="assets/logos/logo-cts-slogan-nit-azul.png" download>PNG</a></div></div></div>
+            <div class="logo-tile"><div class="logo-preview" style="background:#0065BB"><img src="assets/logos/logo-cts-slogan-nit-blanco.png" alt="Blanco"></div><div class="logo-info"><span class="logo-name">Blanco</span><div class="icon-btns"><a class="dl-btn" href="assets/logos/logo-cts-slogan-nit-blanco.png" download>PNG</a></div></div></div>
+            <div class="logo-tile"><div class="logo-preview" style="background:#F4F7FB"><img src="assets/logos/logo-cts-slogan-nit-gris.png" alt="Gris"></div><div class="logo-info"><span class="logo-name">Gris</span><div class="icon-btns"><a class="dl-btn" href="assets/logos/logo-cts-slogan-nit-gris.png" download>PNG</a></div></div></div>
           </div>
         </div>
 
-        <div>
+        <div class="icon-product">
           <p class="sub">Con NIT</p>
-          <div class="logo-grid">
-            <div class="logo-tile"><div class="logo-preview" style="background:#F4F7FB"><img src="assets/logos/logo-cts-nit-principal.png" alt="Principal"></div><div class="logo-info"><span class="logo-name">Principal</span><a class="dl-btn" href="assets/logos/logo-cts-nit-principal.png" download>↓ PNG</a></div></div>
-            <div class="logo-tile"><div class="logo-preview" style="background:#EEF4FB"><img src="assets/logos/logo-cts-nit-azul.png" alt="Azul"></div><div class="logo-info"><span class="logo-name">Azul</span><a class="dl-btn" href="assets/logos/logo-cts-nit-azul.png" download>↓ PNG</a></div></div>
-            <div class="logo-tile"><div class="logo-preview" style="background:#0065BB"><img src="assets/logos/logo-cts-nit-blanco.png" alt="Blanco"></div><div class="logo-info"><span class="logo-name">Blanco</span><a class="dl-btn" href="assets/logos/logo-cts-nit-blanco.png" download>↓ PNG</a></div></div>
-            <div class="logo-tile"><div class="logo-preview" style="background:#F4F7FB"><img src="assets/logos/logo-cts-nit-gris.png" alt="Gris"></div><div class="logo-info"><span class="logo-name">Gris</span><a class="dl-btn" href="assets/logos/logo-cts-nit-gris.png" download>↓ PNG</a></div></div>
+          <div class="icon-variants">
+            <div class="logo-tile"><div class="logo-preview" style="background:#F4F7FB"><img src="assets/logos/logo-cts-nit-principal.png" alt="Principal"></div><div class="logo-info"><span class="logo-name">Principal</span><div class="icon-btns"><a class="dl-btn" href="assets/logos/logo-cts-nit-principal.png" download>PNG</a></div></div></div>
+            <div class="logo-tile"><div class="logo-preview" style="background:#EEF4FB"><img src="assets/logos/logo-cts-nit-azul.png" alt="Azul"></div><div class="logo-info"><span class="logo-name">Azul</span><div class="icon-btns"><a class="dl-btn" href="assets/logos/logo-cts-nit-azul.png" download>PNG</a></div></div></div>
+            <div class="logo-tile"><div class="logo-preview" style="background:#0065BB"><img src="assets/logos/logo-cts-nit-blanco.png" alt="Blanco"></div><div class="logo-info"><span class="logo-name">Blanco</span><div class="icon-btns"><a class="dl-btn" href="assets/logos/logo-cts-nit-blanco.png" download>PNG</a></div></div></div>
+            <div class="logo-tile"><div class="logo-preview" style="background:#F4F7FB"><img src="assets/logos/logo-cts-nit-gris.png" alt="Gris"></div><div class="logo-info"><span class="logo-name">Gris</span><div class="icon-btns"><a class="dl-btn" href="assets/logos/logo-cts-nit-gris.png" download>PNG</a></div></div></div>
           </div>
         </div>
 
