@@ -1,0 +1,124 @@
+/* src/sections/nav-comp/styles.css
+   TABS (631-645), BREADCRUMB (646-653), STEPPER (654-674, UNUSED),
+   PROGRESS BAR (675-680, UNUSED), DROPDOWN (764-803), plus the
+   #nav-comp-scoped .g2/.ch/.btn-tab-group/.filter-bar overrides that
+   were interleaved in the COLOR CAROUSEL block (1066-1077).
+   NOTE: DROPDOWN wasn't explicitly listed for this section in the
+   target spec, but grep confirms .filter-bar/.filter-btn/.fb-* are used
+   ONLY by #nav-comp's 'Filtro' cards (plus one reuse by the Recursos
+   view's icon-search box via .fb-search — flagged below and in the
+   final report), so DROPDOWN was added here.
+   NOTE: TABS (.tabs/.tab, generic) is verified UNUSED — nav-comp's
+   actual tab demos use the unrelated .btn-tab/.btn-tab-group classes
+   (from styles/base.css's... actually BUTTONS block, see
+   sections/buttons/styles.css) which are static/hardcoded, no JS.
+   STEPPER and PROGRESS BAR are also verified UNUSED anywhere in the HTML.
+*/
+/* ══ TABS ═════════════════════════════════════ */
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--bd);overflow-x:auto}
+.tab{
+  display:flex;align-items:center;gap:5px;
+  padding:9px 16px;font-size:.82rem;font-weight:600;
+  color:var(--tx-secondary);cursor:pointer;
+  border-bottom:2px solid transparent;margin-bottom:-2px;
+  white-space:nowrap;transition:color .15s,border-color .15s;
+  background:none;border-top:none;border-left:none;border-right:none;
+  font-family:var(--font-body);
+}
+.tab:hover{color:var(--tx-primary)}
+.tab.active{color:var(--cts-blue);border-bottom-color:var(--cts-blue)}
+[data-theme="dark"] .tab.active{color:var(--cts-blue-light);border-bottom-color:var(--cts-blue-light)}
+
+
+/* ══ BREADCRUMB ═══════════════════════════════ */
+.bc{display:flex;align-items:center;gap:6px;font-size:.8rem}
+.bc a{color:var(--cts-blue);text-decoration:none;font-weight:600}
+[data-theme="dark"] .bc a{color:var(--cts-blue-light)}
+.bc a:hover{text-decoration:underline}
+.bc .sep{color:var(--tx-muted);font-size:.7rem}
+.bc .cur{color:var(--tx-secondary)}
+
+
+/* ══ STEPPER ══════════════════════════════════ */
+.stepper{display:flex;flex-direction:column;gap:0}
+.step{display:flex;align-items:flex-start;gap:12px;padding:8px 0;position:relative}
+.step::before{
+  content:'';position:absolute;left:11px;top:28px;bottom:-8px;
+  width:2px;background:var(--bd);
+}
+.step:last-child::before{display:none}
+.step-dot{
+  width:24px;height:24px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.72rem;font-weight:700;margin-top:2px;
+}
+.step-dot.done{background:var(--cts-success);color:#fff}
+.step-dot.active{background:var(--cts-blue);color:#fff}
+.step-dot.pending{background:var(--bg-alt);color:var(--tx-muted);border:2px solid var(--bd)}
+.step-label{font-size:.85rem;font-weight:600;color:var(--tx-primary);margin-top:3px}
+.step-label.active-lbl{color:var(--cts-blue);font-weight:700}
+[data-theme="dark"] .step-label.active-lbl{color:var(--cts-blue-light)}
+.step-label.pending-lbl{color:var(--tx-muted)}
+
+
+/* ══ PROGRESS BAR ═════════════════════════════ */
+.prog-row{margin-bottom:14px}
+.prog-head{display:flex;justify-content:space-between;font-size:.8rem;margin-bottom:5px}
+.prog-track{height:7px;background:var(--bd);border-radius:var(--r-full);overflow:hidden}
+.prog-fill{height:100%;border-radius:var(--r-full);transition:width .5s}
+
+
+/* ══ DROPDOWN ═════════════════════════════════ */
+.filter-bar{
+  display:flex;align-items:center;gap:0;
+  padding:10px 0;background:transparent;
+  border:none;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);
+}
+.filter-btn{
+  display:flex;align-items:center;gap:6px;
+  background:none;border:none;cursor:pointer;
+  font-family:var(--font-body);font-size:.85rem;font-weight:600;color:var(--tx-secondary);
+  padding:6px 14px;white-space:nowrap;
+  transition:color .15s;
+}
+.filter-btn:hover{color:var(--cts-blue)}
+[data-theme="dark"] .filter-btn:hover{color:var(--cts-blue-light)}
+.fb-div{width:1px;background:var(--tx-muted);align-self:stretch;margin:0 2px;flex-shrink:0}
+.fb-drop{
+  display:flex;align-items:center;gap:5px;
+  background:none;border:none;cursor:pointer;
+  font-family:var(--font-body);font-size:.88rem;font-weight:600;color:var(--tx-primary);
+  padding:6px 14px;white-space:nowrap;
+  transition:color .15s;
+}
+.fb-drop:hover{color:var(--cts-blue)}
+[data-theme="dark"] .fb-drop:hover{color:var(--cts-blue-light)}
+.fb-select{display:flex;flex-direction:column;gap:2px;padding:4px 14px;cursor:pointer}
+.fb-select-lbl{font-size:.64rem;font-weight:700;color:var(--tx-muted);text-transform:uppercase;letter-spacing:.06em;display:flex;align-items:center;gap:4px}
+.fb-select-val{display:flex;align-items:center;gap:5px;font-size:.88rem;font-weight:600;color:var(--tx-primary);white-space:nowrap}
+.fb-count{font-size:.78rem;color:var(--tx-secondary);margin-bottom:10px}
+.fb-count strong{color:var(--tx-primary);font-weight:700}
+.fb-search{
+  display:flex;align-items:center;gap:8px;padding:6px 4px;
+  border-bottom:1px solid color-mix(in srgb,var(--tx-muted) 65%,black 35%);flex:1;min-width:180px;
+  transition:border-color .2s;
+}
+.fb-search:focus-within{border-bottom-color:var(--bd-focus)}
+#icon-search-wrap{border-bottom-color:rgba(255,255,255,.5)}
+#icon-search-wrap:focus-within{border-bottom-color:#fff}
+#icon-search::placeholder{color:rgba(255,255,255,.65)}
+
+
+/* #nav-comp-scoped overrides (interleaved in COLOR CAROUSEL block) */
+#nav-comp .g2{grid-template-columns:repeat(2,1fr)}
+#nav-comp .g2>.card:first-child,#nav-comp .g2>.card:nth-child(4),#nav-comp .g2>.card:nth-child(5){grid-column:1/-1}
+#nav-comp .g2>.card{
+  background:#DDE6F0;border-left:6px solid #00305c;
+  border-radius:var(--r-lg);box-shadow:var(--sh-sm);
+  padding:0 20px;margin-bottom:24px;
+}
+#nav-comp .g2>.card:last-child{margin-bottom:0}
+[data-theme="dark"] #nav-comp .g2>.card{background:var(--bg-surface);border-left-color:var(--cts-blue-light)}
+#nav-comp .ch{border-bottom:none}
+#nav-comp .btn-tab-group{border-bottom:none}
+#nav-comp .filter-bar{border-top:none;border-bottom:none}

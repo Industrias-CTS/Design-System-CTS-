@@ -1,14 +1,14 @@
-export { Button } from './Button'
-export type { ButtonProps, ButtonVariant, ButtonSize } from './Button'
+export { Button } from './atoms/Button'
+export type { ButtonProps, ButtonVariant, ButtonSize } from './atoms/Button'
 
-export { Typography } from './Typography'
-export type { TypographyProps, TypographyVariant, TypographyColor } from './Typography'
+export { Typography } from './atoms/Typography'
+export type { TypographyProps, TypographyVariant, TypographyColor } from './atoms/Typography'
 
-export { Input } from './Input'
-export type { InputProps, InputState, InputSize } from './Input'
+export { Input } from './atoms/Input'
+export type { InputProps, InputState, InputSize } from './atoms/Input'
 
-export { Card, CardHeader, CardBody, CardFooter } from './Card'
-export type { CardProps, CardHeaderProps, CardBodyProps, CardFooterProps, CardVariant } from './Card'
+export { Badge } from './atoms/Badge'
+export type { BadgeProps, BadgeVariant, BadgeSize } from './atoms/Badge'
 
-export { Badge } from './Badge'
-export type { BadgeProps, BadgeVariant, BadgeSize } from './Badge'
+export { Card, CardHeader, CardBody, CardFooter } from './molecules/Card'
+export type { CardProps, CardHeaderProps, CardBodyProps, CardFooterProps, CardVariant } from './molecules/Card'

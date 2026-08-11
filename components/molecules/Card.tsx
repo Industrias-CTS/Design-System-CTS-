@@ -66,7 +66,7 @@ export function CardHeader({ title, subtitle, action, className = '' }: CardHead
       ].filter(Boolean).join(' ')}
     >
       <div className="min-w-0 flex-1">
-        <h3 className="font-display font-bold text-lg text-[#1A1A1A] truncate">
+        <h3 className="font-display font-bold text-lg text-cts-black truncate">
           {title}
         </h3>
         {subtitle && (
@@ -92,7 +92,7 @@ export function CardFooter({ children, className = '' }: CardFooterProps) {
       className={[
         'px-6 py-4',
         'border-t border-cts-gray-light/50',
-        'bg-[#F4F7FB]',
+        'bg-cts-bg-subtle',
         className,
       ].filter(Boolean).join(' ')}
     >

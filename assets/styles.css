@@ -1,3 +1,6 @@
+/* ══ TOKENS DE MARCA — únicos en tokens/index.css ═ */
+@import url('../tokens/index.css');
+
 /* ══ FONTS ════════════════════════════════════ */
 @font-face{font-family:'Conthrax';src:url('fonts/conthrax/conthrax-light.otf') format('opentype');font-weight:300;font-style:normal;font-display:swap}
 @font-face{font-family:'Conthrax';src:url('fonts/conthrax/conthrax-regular.otf') format('opentype');font-weight:400;font-style:normal;font-display:swap}
@@ -8,15 +11,8 @@
 @font-face{font-family:'Titillium Web';src:url('fonts/titillium/TitilliumWeb-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap}
 @font-face{font-family:'Titillium Web';src:url('fonts/titillium/TitilliumWeb-Bold.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap}
 
-/* ══ TOKENS DE MARCA (fijos) ══════════════════ */
+/* ══ TOKENS LOCALES DEL SHOWCASE (fijos) ══════ */
 :root {
-  --cts-blue:       #0065BB;
-  --cts-blue-light: #89AEDC;
-  --cts-blue-dark:  #004D9E;
-  --cts-gray:       #8F8F8F;
-  --cts-gray-light: #C8C8C8;
-  --cts-gray-dark:  #646464;
-
   --p-alta:         #EF4444;
   --p-alta-bg:      rgba(239,68,68,.15);
   --p-media:        #F59E0B;
@@ -24,8 +20,6 @@
   --p-baja:         #22C55E;
   --p-baja-bg:      rgba(34,197,94,.15);
 
-  --cts-success:    #16A34A;
-  --cts-warning:    #D97706;
   --cts-error:      #DC2626;
 
   --font-display: 'Conthrax','Arial Narrow',Arial,sans-serif;

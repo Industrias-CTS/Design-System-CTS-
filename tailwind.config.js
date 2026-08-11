@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // Sigue el atributo data-theme del sitio (el toggle manual claro/oscuro),
+  // no prefers-color-scheme — así los átomos reaccionan al mismo switch
+  // que ya usa el showcase.
+  darkMode: ['selector', '[data-theme="dark"]'],
   content: [
+    './index.html',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -9,20 +14,26 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Referencian tokens/index.css — única fuente de verdad de estos hex.
         cts: {
           blue: {
-            DEFAULT: '#0065BB',
-            light:   '#89AEDC',
-            dark:    '#004D9E',
+            DEFAULT: 'var(--cts-blue)',
+            light:   'var(--cts-blue-light)',
+            dark:    'var(--cts-blue-dark)',
           },
           gray: {
-            DEFAULT: '#8F8F8F',
-            light:   '#C8C8C8',
-            dark:    '#646464',
+            DEFAULT: 'var(--cts-gray)',
+            light:   'var(--cts-gray-light)',
+            dark:    'var(--cts-gray-dark)',
           },
           bg: {
-            subtle: '#F4F7FB',
+            subtle: 'var(--cts-bg-subtle)',
           },
+          black:   'var(--cts-black)',
+          success: { DEFAULT: 'var(--cts-success)', light: 'var(--cts-success-light)' },
+          warning: { DEFAULT: 'var(--cts-warning)', light: 'var(--cts-warning-light)' },
+          error:   { DEFAULT: 'var(--cts-error)',   light: 'var(--cts-error-light)' },
+          info:    { DEFAULT: 'var(--cts-info)',    light: 'var(--cts-info-light)' },
         },
       },
       fontFamily: {

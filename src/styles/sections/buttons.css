@@ -1,0 +1,71 @@
+/* src/sections/buttons/styles.css
+   BUTTONS block verbatim (index.html 162-215) + the #buttons-scoped
+   .mc-grid row-gap override that was interleaved in the COLOR CAROUSEL
+   block (index.html 1064).
+   NOTE: .btn/.bp/.bs/.bo/.bg-btn/.bsm/.bmd/.blg/.brow/.spin defined here
+   are ALSO used by #inputs (modal-tour buttons + the outline trigger
+   button) — verified via grep. Kept here per the target spec since this
+   is a single-page bundle where every section's CSS loads regardless;
+   flagged in the final report in case this ever gets code-split.
+*/
+/* ══ BUTTONS ══════════════════════════════════ */
+.brow{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
+/* Expandible más grande, solo en esta sección — .btn-expand es compartida
+   con #typo (botón de descarga), que no debe cambiar de tamaño. */
+#buttons .btn-expand{padding:13px;border-radius:var(--r-lg)}
+#buttons .btn-expand:hover{padding:13px 19px 13px 13px}
+#buttons .btn-expand-label{font-size:.85rem}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  font-family:var(--font-body);font-weight:600;
+  border:none;background:transparent;cursor:pointer;
+  transition:all .15s var(--ease);
+}
+.btn:focus-visible{outline:2px solid var(--cts-blue);outline-offset:2px}
+.bsm{padding:4px 10px;font-size:.82rem;border-radius:var(--r-md)}
+.bmd{padding:7px 16px;font-size:.9rem;border-radius:var(--r-md)}
+.blg{padding:10px 22px;font-size:1rem;border-radius:var(--r-lg)}
+
+/* Primary — filled */
+.bp{background:var(--cts-blue);color:#fff}
+.bp:hover{background:var(--cts-blue-dark)}
+
+/* Secondary — ghost */
+.bs{color:var(--cts-blue)}
+.bs:hover{background:rgba(0,101,187,.08)}
+[data-theme="dark"] .bs{color:var(--cts-blue-light)}
+[data-theme="dark"] .bs:hover{background:rgba(137,174,220,.1)}
+
+/* Outline — borde fino, sin relleno */
+.bo{color:var(--cts-blue);border:1px solid var(--cts-blue)}
+.bo:hover{background:rgba(0,101,187,.08)}
+[data-theme="dark"] .bo{color:var(--cts-blue-light);border-color:rgba(137,174,220,.4)}
+[data-theme="dark"] .bo:hover{background:rgba(137,174,220,.1)}
+
+/* Ghost — solo texto/ícono */
+.bg-btn{color:var(--cts-blue)}
+.bg-btn:hover{background:rgba(0,101,187,.08)}
+[data-theme="dark"] .bg-btn{color:var(--cts-blue-light)}
+[data-theme="dark"] .bg-btn:hover{background:rgba(137,174,220,.1)}
+
+/* Disabled */
+.bdis{color:var(--tx-muted);cursor:not-allowed;opacity:.5}
+
+/* Tab underline */
+.btn-tab{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--font-body);font-size:.85rem;font-weight:600;
+  color:var(--tx-secondary);background:none;border:none;cursor:pointer;
+  padding:8px 12px;border-bottom:2px solid transparent;margin-bottom:-2px;
+  transition:color .15s,border-color .15s;
+}
+.btn-tab:hover{color:var(--tx-primary)}
+.btn-tab.active{color:var(--cts-blue);border-bottom-color:var(--cts-blue)}
+[data-theme="dark"] .btn-tab.active{color:var(--cts-blue-light);border-bottom-color:var(--cts-blue-light)}
+.btn-tab-group{display:flex;border-bottom:1px solid var(--bd)}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+.spin{animation:spin .8s linear infinite;display:inline-block}
+
+
+#buttons .mc-grid{row-gap:56px}

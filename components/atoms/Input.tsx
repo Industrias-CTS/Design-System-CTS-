@@ -19,12 +19,12 @@ const stateStyles: Record<InputState, { border: string; message: string }> = {
     message: 'text-cts-gray-dark',
   },
   error: {
-    border:  'border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-500/20',
-    message: 'text-red-600',
+    border:  'border-cts-error focus:border-cts-error focus:ring-2 focus:ring-cts-error/20',
+    message: 'text-cts-error',
   },
   success: {
-    border:  'border-green-500 focus:border-green-500 focus:ring-2 focus:ring-green-500/20',
-    message: 'text-green-600',
+    border:  'border-cts-success focus:border-cts-success focus:ring-2 focus:ring-cts-success/20',
+    message: 'text-cts-success',
   },
 }
 
@@ -55,10 +55,10 @@ export function Input({
       {(label || hint) && (
         <div className="flex flex-col gap-0.5">
           {label && (
-            <label htmlFor={inputId} className="font-body font-bold text-sm text-[#1A1A1A]">
+            <label htmlFor={inputId} className="font-body font-bold text-sm text-cts-black">
               {label}
               {required && (
-                <span className="text-red-500 ml-1" aria-hidden="true">*</span>
+                <span className="text-cts-error ml-1" aria-hidden="true">*</span>
               )}
             </label>
           )}
@@ -87,7 +87,7 @@ export function Input({
             'transition-all duration-[200ms] ease-[cubic-bezier(0.4,0,0.2,1)]',
             'placeholder:text-cts-gray-light',
             'focus:outline-none',
-            'disabled:bg-[#F4F7FB] disabled:text-cts-gray disabled:cursor-not-allowed',
+            'disabled:bg-cts-bg-subtle disabled:text-cts-gray disabled:cursor-not-allowed',
             stateStyles[state].border,
             sizeStyles[size].input,
             leadingIcon  ? 'pl-10' : '',

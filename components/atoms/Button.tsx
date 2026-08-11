@@ -14,30 +14,36 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary: [
-    'bg-cts-blue text-white',
+    'border-0 bg-cts-blue text-white',
     'hover:bg-cts-blue-dark',
-    'focus:ring-2 focus:ring-cts-blue focus:ring-offset-2',
+    'focus-visible:outline focus-visible:outline-2 focus-visible:outline-cts-blue',
     'disabled:bg-cts-gray-light disabled:text-cts-gray disabled:cursor-not-allowed',
   ].join(' '),
 
   secondary: [
-    'bg-cts-blue-light text-cts-blue-dark',
+    'border-0 bg-cts-blue-light text-cts-blue-dark',
     'hover:bg-cts-blue hover:text-white',
-    'focus:ring-2 focus:ring-cts-blue focus:ring-offset-2',
+    'focus-visible:outline focus-visible:outline-2 focus-visible:outline-cts-blue',
     'disabled:opacity-50 disabled:cursor-not-allowed',
   ].join(' '),
 
   outline: [
     'border-2 border-cts-blue text-cts-blue bg-transparent',
-    'hover:bg-cts-blue hover:text-white',
-    'focus:ring-2 focus:ring-cts-blue focus:ring-offset-2',
+    'dark:border-[rgba(137,174,220,.4)] dark:text-cts-blue-light',
+    // Tinte de hover en base a currentColor: sigue el color de CADA botón
+    // (naranja si el texto es naranja, azul si es azul) en vez de un azul
+    // fijo — así un outline con color personalizado (ej. prioridad) no se
+    // "vuelve azul" al pasar el cursor.
+    'hover:bg-[color-mix(in_srgb,currentColor_8%,transparent)]',
+    'focus-visible:outline focus-visible:outline-2 focus-visible:outline-cts-blue',
     'disabled:border-cts-gray-light disabled:text-cts-gray disabled:cursor-not-allowed',
   ].join(' '),
 
   ghost: [
-    'text-cts-blue bg-transparent',
-    'hover:bg-cts-blue/10',
-    'focus:ring-2 focus:ring-cts-blue focus:ring-offset-2',
+    'border-0 text-cts-blue bg-transparent',
+    'dark:text-cts-blue-light',
+    'hover:bg-[color-mix(in_srgb,currentColor_8%,transparent)]',
+    'focus-visible:outline focus-visible:outline-2 focus-visible:outline-cts-blue',
     'disabled:text-cts-gray disabled:cursor-not-allowed',
   ].join(' '),
 }
@@ -63,7 +69,7 @@ export function Button({
   return (
     <button
       className={[
-        'inline-flex items-center justify-center',
+        'inline-flex items-center justify-center appearance-none cursor-pointer border-solid',
         'font-body font-semibold',
         'transition-all duration-[200ms] ease-[cubic-bezier(0.4,0,0.2,1)]',
         'focus:outline-none',

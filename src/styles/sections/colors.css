@@ -1,0 +1,69 @@
+/* src/sections/colors/styles.css
+   Colors-section-exclusive carousel widget CSS, extracted from the COLOR
+   CAROUSEL block (index.html 1164-1180, 1186-1228). The shared banner
+   primitives that were interleaved in the same original marker block
+   (.sec-full-banner base, cs-full-in/row/label-col, sec-n/title2/desc,
+   cs-hint, the 900px responsive rule) were moved to styles/layout.css
+   instead, since they're reused by all 9 sections — see that file's header.
+*/
+.cs-carousel-wrap{
+  flex:1;min-width:0;
+  display:flex;flex-direction:column;align-items:center;gap:46px;
+}
+.cs-mode-toggle{
+  display:flex;gap:6px;background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);border-radius:var(--r-full);
+  padding:5px;margin-top:-24px;margin-bottom:24px;
+}
+.cs-mode-btn{
+  background:none;border:none;cursor:pointer;
+  font-family:var(--font-body);font-size:.92rem;font-weight:600;
+  color:rgba(255,255,255,.6);padding:8px 20px;border-radius:var(--r-full);
+  transition:background .15s,color .15s;
+}
+.cs-mode-btn:hover{color:#fff}
+.cs-mode-btn.active{background:rgba(255,255,255,.16);color:#fff}
+
+/* Carrusel */
+.cs-carousel{position:relative;width:100%;height:340px}
+.cs-card{
+  position:absolute;left:50%;top:50%;
+  width:210px;height:266px;margin-left:-105px;margin-top:-133px;
+  border-radius:18px;overflow:hidden;
+  display:flex;align-items:flex-end;
+  box-shadow:0 16px 40px rgba(0,0,0,.4);
+  cursor:pointer;
+  transition:transform .55s cubic-bezier(.4,0,.2,1),opacity .55s,filter .55s;
+}
+.cs-card-label{
+  width:100%;padding:14px 16px 16px;
+  background:linear-gradient(to top,rgba(0,0,0,.65) 0%,rgba(0,0,0,0) 100%);
+}
+.cs-card-name{color:#fff;font-weight:700;font-size:1.12rem;line-height:1.2}
+.cs-card-hex{color:rgba(255,255,255,.75);font-size:.9rem;font-family:monospace;margin-top:3px}
+
+/* Player bar */
+.cs-player{
+  display:flex;align-items:center;gap:18px;
+  background:rgba(255,255,255,.1);backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:var(--r-lg);
+  padding:14px 26px;width:min(600px,100%);box-sizing:border-box;
+}
+.cs-pbtn{
+  background:none;border:none;color:#fff;cursor:pointer;
+  width:38px;height:38px;display:flex;align-items:center;justify-content:center;
+  border-radius:50%;opacity:.85;transition:opacity .15s,background .15s;
+}
+.cs-pbtn:hover{opacity:1;background:rgba(255,255,255,.12)}
+.cs-pbtn svg{width:20px;height:20px}
+.cs-pbtn-main svg{width:19px;height:19px}
+.cs-player-div{width:1px;height:28px;background:rgba(255,255,255,.2)}
+.cs-player-swatch{width:44px;height:44px;border-radius:10px;flex-shrink:0;transition:background-color .5s}
+.cs-player-info{min-width:0;flex:1}
+.cs-player-use{color:#fff;font-weight:700;font-size:1.28rem;line-height:1.35}
+@media(max-width:640px){
+  .cs-card{width:140px;height:190px;margin-left:-70px;margin-top:-95px}
+  .cs-carousel{height:230px}
+  .cs-player{width:100%}
+}

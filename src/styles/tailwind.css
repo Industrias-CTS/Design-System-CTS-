@@ -1,0 +1,5 @@
+/* Solo utilities — sin @tailwind base/preflight: el showcase ya tiene su
+   propio reset y estilos de elemento en base.css/layout.css, y activar
+   preflight los pisaría globalmente. Esto solo genera clases utilitarias
+   (bg-cts-blue, rounded-md, etc.) para los átomos reales de components/. */
+@tailwind utilities;

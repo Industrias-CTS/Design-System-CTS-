@@ -1,0 +1,26 @@
+/* src/sections/sidebar-comp/styles.css
+   FIELD SECTION block verbatim (index.html 681-696).
+   NOTE: verified via grep — .fs/.fs-header/.fs-grid/.fs-field/.fs-lbl/
+   .fs-val are currently UNUSED anywhere in the HTML (no element uses
+   class="fs"). Kept here per target spec anyway.
+   NOTE: the section's LIVE visuals (.real-sidebar-wrap/.rs-*, .ud-panel
+   user dropdown, and the .tour-* overlay framework) live in
+   styles/layout.css and sections/inputs/styles.css respectively — see
+   those files' header comments and the final report.
+*/
+/* ══ FIELD SECTION ════════════════════════════ */
+.fs{border:1px solid var(--bd);border-radius:var(--r-lg);overflow:hidden;margin-bottom:16px}
+.fs-header{
+  background:var(--bg-alt);padding:9px 16px;
+  display:flex;align-items:center;gap:7px;
+  font-size:.76rem;font-weight:700;color:var(--tx-secondary);
+  text-transform:uppercase;letter-spacing:.06em;
+  border-bottom:1px solid var(--bd);
+}
+.fs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.fs-field{padding:12px 16px;border-right:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.fs-field:nth-child(2n){border-right:none}
+.fs-field:last-child,.fs-field:nth-last-child(2){border-bottom:none}
+.fs-lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--tx-muted);margin-bottom:3px}
+.fs-val{font-size:.9rem;color:var(--tx-primary);font-weight:600}
+

@@ -1,0 +1,68 @@
+/* src/sections/typography/styles.css
+   TYPOGRAPHY css block, verbatim from index.html 52-109.
+   DEVIATION FROM TARGET SPEC: the target tree suggested a generic
+   'scale' portion of TYPOGRAPHY should live in styles/base.css. Grep
+   against the live HTML shows every class in this block (.ty-input*,
+   #typo .ch/.cb overrides, .ty-marquee*, .ty-scale-grid, .ty-row,
+   .ty-meta) is used exclusively inside #typo — nothing else in the
+   page references them — so the whole block was kept here instead.
+   See final report for details.
+*/
+/* ══ TYPOGRAPHY ═══════════════════════════════ */
+.ty-input-wrap{margin-bottom:16px}
+.ty-input{
+  width:100%;font-family:var(--font-body);font-size:1rem;
+  padding:10px 4px;background:transparent;color:var(--tx-primary);
+  border:none;border-bottom:2px solid var(--bd);border-radius:0;
+  outline:none;transition:border-color .2s;
+}
+.ty-input:focus{border-bottom-color:var(--bd-focus)}
+.ty-input::placeholder{color:var(--tx-disabled)}
+#typo .cs-full-in{padding:32px 40px}
+#typo{min-height:min(calc(100vh - 68px),962px)}
+#typo .sec-full-banner{min-height:min(calc(100vh - 68px),962px);flex-direction:column;align-items:stretch;justify-content:center;padding:32px 0}
+#typo .ch{padding:8px 0;border-bottom:none}
+#typo .cb{padding:12px 0}
+#typo .cb>div+div{border-top:none;padding-top:0}
+#typo .ty-input-wrap{margin-bottom:8px}
+#typo .ty-input{
+  border-bottom:none;background:rgba(255,255,255,.08);
+  border:1.5px solid rgba(255,255,255,.25);border-radius:var(--r-md);
+  padding:12px 16px;color:#fff;font-weight:600;
+}
+#typo .ty-input:focus{border-color:var(--bd-focus);background:rgba(255,255,255,.12)}
+#typo .ty-input::placeholder{color:rgba(255,255,255,.55)}
+#typo .ty-dl-btn{
+  flex-shrink:0;color:#fff;
+  background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.25);
+  padding:11px;
+}
+#typo .ty-dl-btn:hover{background:rgba(255,255,255,.18);padding:11px 16px 11px 11px}
+.ty-marquee{
+  width:100%;z-index:1;
+  overflow:hidden;white-space:nowrap;
+  padding:10px 0;background:var(--hero-a);
+  color:#fff;letter-spacing:.2em;
+}
+.ty-marquee-top{margin-bottom:32px}
+.ty-marquee-bottom{margin-top:32px}
+.ty-marquee-track{display:inline-block;white-space:nowrap;animation:ty-marquee-scroll 90s linear infinite}
+.ty-marquee-track>span>span{display:inline-block;padding-right:160px}
+@keyframes ty-marquee-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ty-scale-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,auto);grid-auto-flow:column;column-gap:32px}
+.ty-row{
+  display:flex;align-items:baseline;gap:12px;
+  padding:7px 0;border-bottom:1px solid var(--bd);
+  break-inside:avoid;
+}
+.ty-row:last-child{border-bottom:none}
+@media(max-width:640px){.ty-scale-grid{display:block}}
+.ty-meta{min-width:120px;font-size:.7rem;color:var(--tx-secondary);flex-shrink:0}
+.ty-meta code{
+  display:inline-block;background:var(--bg-alt);
+  color:var(--cts-blue);padding:2px 6px;border-radius:4px;
+  font-size:.68rem;margin-bottom:3px;
+}
+[data-theme="dark"] .ty-meta code{color:var(--cts-blue-light)}
+.ty-meta .td{font-size:.66rem;display:block;color:var(--tx-muted)}
+

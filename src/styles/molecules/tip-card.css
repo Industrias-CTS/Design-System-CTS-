@@ -1,0 +1,27 @@
+/* src/molecules/tip-card/styles.css
+   .tip-card / .tip-icon base rules (index.html 1088-1090) + all #tips-scoped
+   overrides that were interleaved inside the COLOR CAROUSEL css block
+   (index.html 1060-1061, 1063, 1102-1114) — these are #tips-exclusive, so they
+   live with the tip-card molecule rather than in styles/layout.css.
+*/
+.tip-card .ch{display:flex;align-items:center;gap:12px;border-bottom:none;padding-bottom:10px}
+.tip-icon{width:40px;height:40px;flex-shrink:0}
+.tip-icon svg{width:20px;height:20px}
+
+#tips{min-height:min(calc(100vh - 68px),962px)}
+#tips .sec-full-banner{min-height:min(calc(100vh - 68px),962px)}
+#tips .mc-grid>.card{margin-bottom:0}
+
+#tips .sec-full-banner{background:#5B8FBC}
+[data-theme="dark"] #tips .sec-full-banner{background:#283D63}
+#tips .sec-full-banner .sec-n{color:rgba(0,77,158,.12)}
+#tips .sec-full-banner .sec-title2{color:#fff}
+#tips .sec-full-banner .sec-desc{color:rgba(255,255,255,.85)}
+#tips .sec-full-banner .cs-hint{color:var(--tx-muted)}
+[data-theme="dark"] #tips .sec-full-banner .sec-n{color:rgba(255,255,255,.14)}
+[data-theme="dark"] #tips .sec-full-banner .sec-title2{color:#fff}
+[data-theme="dark"] #tips .sec-full-banner .sec-desc{color:rgba(255,255,255,.65)}
+[data-theme="dark"] #tips .sec-full-banner .cs-hint{color:rgba(255,255,255,.45)}
+#tips .tip-card .ch h3{color:#fff}
+#tips .tip-card .ch p{color:rgba(255,255,255,.85)}
+#tips .tip-card .cb p{color:rgba(255,255,255,.85) !important}

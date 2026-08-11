@@ -14,19 +14,19 @@ export interface BadgeProps {
 const variantStyles: Record<BadgeVariant, string> = {
   primary:   'bg-cts-blue text-white',
   secondary: 'bg-cts-blue-light text-cts-blue-dark',
-  success:   'bg-green-100 text-green-700',
-  warning:   'bg-amber-100 text-amber-700',
-  error:     'bg-red-100 text-red-700',
-  info:      'bg-blue-50 text-cts-blue',
+  success:   'bg-cts-success-light text-cts-success',
+  warning:   'bg-cts-warning-light text-cts-warning',
+  error:     'bg-cts-error-light text-cts-error',
+  info:      'bg-cts-info-light text-cts-blue',
   neutral:   'bg-cts-gray-light text-cts-gray-dark',
 }
 
 const dotColors: Record<BadgeVariant, string> = {
   primary:   'bg-white',
   secondary: 'bg-cts-blue-dark',
-  success:   'bg-green-500',
-  warning:   'bg-amber-500',
-  error:     'bg-red-500',
+  success:   'bg-cts-success',
+  warning:   'bg-cts-warning',
+  error:     'bg-cts-error',
   info:      'bg-cts-blue',
   neutral:   'bg-cts-gray',
 }

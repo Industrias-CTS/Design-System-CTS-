@@ -32,7 +32,7 @@ Botón de acción principal. 4 variantes × 3 tamaños.
 ### Ejemplo
 
 ```tsx
-import { Button } from '@/components/cts'
+import { Button } from '../components'
 
 /* Acción principal */
 <Button variant="primary" size="md">Guardar cambios</Button>
@@ -70,7 +70,7 @@ Sistema de texto — headings, body, labels, captions.
 ### Ejemplo
 
 ```tsx
-import { Typography } from '@/components/cts'
+import { Typography } from '../components'
 
 <Typography variant="h1" color="primary">Industrias CTS</Typography>
 <Typography variant="h3">Catálogo 2026</Typography>
@@ -103,7 +103,7 @@ Campo de texto con soporte para label, hint, estados y íconos.
 ### Ejemplo
 
 ```tsx
-import { Input } from '@/components/cts'
+import { Input } from '../components'
 
 /* Básico */
 <Input label="Nombre completo" placeholder="Ej. Juan García" />
@@ -178,7 +178,7 @@ Contenedor de contenido. Compuesto por Card + CardHeader + CardBody + CardFooter
 ### Ejemplo
 
 ```tsx
-import { Card, CardHeader, CardBody, CardFooter, Button, Typography } from '@/components/cts'
+import { Card, CardHeader, CardBody, CardFooter, Button, Typography } from '../components'
 
 <Card variant="default">
   <CardHeader
@@ -221,7 +221,7 @@ Etiqueta de estado o categoría.
 ### Ejemplo
 
 ```tsx
-import { Badge } from '@/components/cts'
+import { Badge } from '../components'
 
 <Badge variant="primary">Activo</Badge>
 <Badge variant="success" dot>Disponible</Badge>

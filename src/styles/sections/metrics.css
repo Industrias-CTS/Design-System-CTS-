@@ -1,0 +1,160 @@
+/* src/sections/metrics/styles.css
+   MÉTRICAS — stat strip (492-531), KPI tiles (532-555), bar chart
+   (556-587), line chart (588-621), meter (622-630). All verbatim,
+   contiguous in the original file.
+   NOTE: this file's .stat-icon (44px) rule (stat strip) is the LIVE
+   one that must win over sections/badges/styles.css's dead 48px
+   .stat-icon from the unused STAT CARDS block — see that file's header.
+   NOTE: this file's base .dot rule usage (.bar-cat .dot, .lc-legend-
+   item .dot) relies on the *generic* .dot{border-radius:50%;...} base
+   rule defined in sections/badges/styles.css (BADGES block) for shape/
+   sizing baseline — only the color/size overrides live here. Both
+   sections load unconditionally on this single page, so this is safe
+   today; flagged in case of future code-splitting.
+   NOTE: tips/tip-card reuses this file's .kpi-icon rule (see
+   molecules/tip-card — <span class="tip-icon kpi-icon">). Same
+   same-page caveat applies.
+*/
+/* ══ MÉTRICAS — stat strip ════════════════════ */
+.stat-strip{
+  display:flex;align-items:stretch;flex-wrap:wrap;
+  background:linear-gradient(135deg,#dde6f0 0%,#c7d6e8 100%);
+  border-radius:var(--r-lg);padding:6px 8px;margin-bottom:20px;
+}
+[data-theme="dark"] .stat-strip{background:linear-gradient(135deg,#1A2A47 0%,#283D63 100%)}
+.stat-item{display:flex;flex-direction:column;gap:2px;padding:0 36px;flex:1;min-width:240px;justify-content:center}
+.stat-main{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.stat-num{font-family:var(--font-display);font-weight:700;font-size:1.75rem}
+.stat-icon{width:44px;height:44px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;top:3px}
+.stat-icon svg{width:24px;height:24px}
+.stat-lbl{font-size:.8rem;color:var(--tx-secondary)}
+.stat-sub{font-size:.68rem;color:var(--tx-muted)}
+.stat-div{width:1px;background:var(--bd);align-self:stretch;margin:2px 0}
+[data-theme="dark"] .stat-lbl{color:rgba(255,255,255,.75)}
+[data-theme="dark"] .stat-sub{color:rgba(255,255,255,.45)}
+[data-theme="dark"] .stat-div{background:rgba(255,255,255,.15)}
+
+/* stat-strip: colores por variante, distintos en claro/oscuro para contraste */
+.stat-num-blue,.stat-icon-blue{color:var(--cts-blue)}
+.stat-icon-blue{background:rgba(0,101,187,.15)}
+[data-theme="dark"] .stat-num-blue,[data-theme="dark"] .stat-icon-blue{color:var(--cts-blue-light)}
+[data-theme="dark"] .stat-icon-blue{background:rgba(0,101,187,.2)}
+
+.stat-num-green,.stat-icon-green{color:#16A34A}
+.stat-icon-green{background:rgba(22,163,74,.15)}
+[data-theme="dark"] .stat-num-green,[data-theme="dark"] .stat-icon-green{color:#4ADE80}
+[data-theme="dark"] .stat-icon-green{background:rgba(22,163,74,.2)}
+
+.stat-num-neutral,.stat-icon-neutral{color:#334155}
+.stat-icon-neutral{background:rgba(51,65,85,.12)}
+[data-theme="dark"] .stat-num-neutral,[data-theme="dark"] .stat-icon-neutral{color:rgba(255,255,255,.7)}
+[data-theme="dark"] .stat-icon-neutral{background:rgba(255,255,255,.12)}
+
+.stat-num-purple,.stat-icon-purple{color:#9333EA}
+.stat-icon-purple{background:rgba(147,51,234,.15)}
+[data-theme="dark"] .stat-num-purple,[data-theme="dark"] .stat-icon-purple{color:#C084FC}
+[data-theme="dark"] .stat-icon-purple{background:rgba(147,51,234,.2)}
+
+
+/* ══ MÉTRICAS — KPI tiles ═════════════════════ */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.kpi-card{
+  background:transparent;border:none;
+  border-radius:var(--r-lg);box-shadow:none;
+  padding:18px 20px;display:flex;flex-direction:column;
+}
+.kpi-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.kpi-icon{
+  width:36px;height:36px;border-radius:var(--r-md);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg-alt);color:var(--cts-blue);
+}
+[data-theme="dark"] .kpi-icon{color:var(--cts-blue-light)}
+.kpi-val{font-family:var(--font-display);font-size:1.9rem;font-weight:700;line-height:1;color:var(--tx-primary)}
+.kpi-lbl{font-size:.8rem;color:var(--tx-secondary);margin-top:4px}
+.kpi-delta{display:inline-flex;align-items:center;gap:3px;font-size:.72rem;font-weight:700;margin-top:8px}
+.kpi-delta svg{width:11px;height:11px}
+.kpi-spark{width:100%;height:28px;margin-top:12px;display:block}
+.kpi-delta.good{color:#15803D}
+.kpi-delta.bad{color:#B91C1C}
+[data-theme="dark"] .kpi-delta.good{color:#4ADE80}
+[data-theme="dark"] .kpi-delta.bad{color:#F87171}
+
+
+/* ══ MÉTRICAS — bar chart ═════════════════════ */
+.chart-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:18px}
+.chart-legend{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;color:var(--tx-secondary)}
+.chart-legend .dot{width:8px;height:8px;flex-shrink:0}
+.table-toggle{
+  background:none;border:1px solid var(--bd);border-radius:var(--r-sm);
+  font-family:var(--font-body);font-size:.72rem;font-weight:600;color:var(--tx-secondary);
+  padding:5px 10px;cursor:pointer;white-space:nowrap;transition:color .15s,border-color .15s;
+}
+.table-toggle:hover{color:var(--cts-blue);border-color:var(--cts-blue)}
+[data-theme="dark"] .table-toggle:hover{color:var(--cts-blue-light);border-color:var(--cts-blue-light)}
+.chart-table{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:4px}
+.chart-table th{text-align:left;font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;color:var(--tx-muted);padding:6px 10px;border-bottom:1px solid var(--bd)}
+.chart-table td{padding:7px 10px;border-bottom:1px solid var(--bd);color:var(--tx-primary)}
+.chart-a11y{
+  display:flex;align-items:flex-start;gap:8px;margin-top:16px;padding-top:14px;
+  border-top:1px solid var(--bd);font-size:.74rem;line-height:1.5;color:var(--tx-muted);
+}
+.chart-a11y svg{flex-shrink:0;margin-top:2px;color:#D97706}
+.chart-a11y strong{color:var(--tx-secondary);font-weight:700}
+.bar-rows{display:flex;flex-direction:column;gap:14px}
+.bar-row{display:grid;grid-template-columns:112px 1fr 40px;align-items:center;gap:10px}
+.bar-cat{font-size:.8rem;color:var(--tx-secondary);display:flex;align-items:center;gap:7px}
+.bar-cat .dot{width:8px;height:8px;flex-shrink:0}
+.bar-track{height:16px;background:var(--bg-alt);border-radius:var(--r-sm);overflow:hidden;position:relative}
+.bar-fill{
+  height:100%;border-radius:0 var(--r-sm) var(--r-sm) 0;
+  transition:width .5s var(--ease);position:relative;
+}
+.bar-row:first-child .bar-fill,.bar-track .bar-fill{border-radius:var(--r-sm)}
+.bar-val{font-size:.78rem;font-weight:700;color:var(--tx-primary);text-align:right;font-variant-numeric:tabular-nums}
+
+
+/* ══ MÉTRICAS — line chart ═════════════════════ */
+.line-chart-wrap{position:relative}
+.line-chart-svg{width:100%;height:auto;overflow:visible}
+.lc-grid-line{stroke:var(--bd)}
+.lc-area{fill:var(--cts-blue);opacity:.1}
+[data-theme="dark"] .lc-area{fill:var(--cts-blue-light)}
+.lc-line{fill:none;stroke:var(--cts-blue);stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+[data-theme="dark"] .lc-line:not(.lc-line-creadas):not(.lc-line-vencidas){stroke:var(--cts-blue-light)}
+.lc-dot{fill:var(--cts-blue);stroke:var(--bg-surface);stroke-width:2;cursor:pointer}
+[data-theme="dark"] .lc-dot:not(.lc-dot-creadas):not(.lc-dot-vencidas){fill:var(--cts-blue-light)}
+.lc-line-creadas{stroke:#16A34A}
+.lc-dot-creadas{fill:#16A34A}
+.lc-line-vencidas{stroke:#DC2626}
+.lc-dot-vencidas{fill:#DC2626}
+.lc-axis-lbl{font-family:var(--font-body);font-size:5px;fill:var(--tx-muted)}
+.lc-series{transition:opacity .15s}
+.lc-series.lc-off{opacity:0;pointer-events:none}
+.lc-legend{display:inline-flex;align-items:center;gap:14px}
+.lc-legend-item{
+  display:inline-flex;align-items:center;gap:6px;
+  background:none;border:none;cursor:pointer;padding:0;
+  font-family:var(--font-body);font-size:.78rem;color:var(--tx-secondary);
+  transition:opacity .15s;
+}
+.lc-legend-item .dot{width:8px;height:8px;flex-shrink:0;border-radius:var(--r-full)}
+.lc-legend-item.lc-off{opacity:.4}
+.chart-tooltip{
+  position:absolute;pointer-events:none;opacity:0;
+  background:rgba(15,26,48,.96);border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--r-sm);padding:5px 9px;
+  font-family:var(--font-body);font-size:.72rem;color:#fff;font-weight:600;
+  transform:translate(-50%,-130%);transition:opacity .12s;white-space:nowrap;z-index:5;
+}
+
+
+/* ══ MÉTRICAS — meter ══════════════════════════ */
+.meter-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.meter-val{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--tx-primary)}
+.meter-lbl{font-size:.8rem;color:var(--tx-secondary)}
+.meter-track{height:10px;background:var(--bg-alt);border-radius:var(--r-full);overflow:hidden}
+.cb .meter-track,.cb .bar-rows,.cb .line-chart-wrap{padding-top:0;border-top:none}
+.meter-fill{height:100%;background:var(--cts-blue);border-radius:var(--r-full);transition:width .5s var(--ease)}
+[data-theme="dark"] .meter-fill{background:var(--cts-blue-light)}
+

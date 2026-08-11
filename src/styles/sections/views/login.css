@@ -1,0 +1,227 @@
+/* src/sections/views/login/styles.css
+   LOGIN css, verbatim from index.html 1252-1466 (#view-login, .login-*,
+   .orb*, .field-label/.field-row, .forgot-link, .pass-wrap, .eye-btn,
+   .submit-btn, .login-terms). This lives right after the SECCIÓN GRID
+   2 COLUMNAS marker in the original file, under a comment at line 829
+   ('LOGIN legacy dead block removed — see #view-login rules below') —
+   i.e. these ARE the real, current login styles; the marker at 829 was
+   just a note pointing here.
+*/
+#view-login{
+  font-family:var(--font-body);
+  color:#fff;
+  height:100vh;
+  overflow:hidden;
+}
+
+/* ── FONDO COMPLETO ──────────────────────────── */
+.login-root{
+  height:100vh;
+  display:flex;
+  position:relative;
+  background:linear-gradient(to top left,var(--hero-c) 0%,var(--hero-b) 45%,var(--hero-a) 100%);
+  background-attachment:fixed;
+}
+[data-theme="dark"] .login-root{
+  background:linear-gradient(120deg,#1a2a47 0%,#2e4a78 100%);
+}
+
+.login-back{
+  position:absolute;top:24px;left:24px;z-index:2;
+  font-family:var(--font-display);font-size:.85rem;font-weight:700;
+  color:rgba(255,255,255,.85);text-decoration:none;
+  letter-spacing:.02em;
+  transition:color .15s;
+}
+.login-back:hover{color:#fff}
+
+/* ── LIGHT ORBS decorativos ──────────────────── */
+.orb{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:0;
+  filter:blur(80px);
+  opacity:.18;
+}
+.orb-1{width:400px;height:400px;background:var(--bd-focus);top:-80px;right:160px}
+.orb-2{width:300px;height:300px;background:var(--cts-blue);bottom:60px;right:80px}
+.orb-3{width:220px;height:220px;background:var(--cts-blue-light);top:40%;right:420px;opacity:.10}
+
+/* ── CONTENIDO ───────────────────────────────── */
+.login-content{
+  position:relative;
+  z-index:1;
+  display:flex;
+  width:100%;
+  height:100vh;
+  align-items:center;
+}
+
+/* ── IZQUIERDA: logo ──────────────────────────── */
+.login-logo-col{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:32px;
+}
+.login-logo-card{
+  width:230px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.login-logo-img{
+  width:100%;
+  height:auto;
+}
+@media(max-width:880px){.login-logo-col{display:none}}
+
+/* ── DERECHA: formulario ─────────────────────── */
+.login-form-col{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:32px;
+}
+
+.login-card{
+  width:100%;
+  max-width:460px;
+  padding:40px;
+  background:transparent;
+  color:#fff;
+}
+
+.login-head{text-align:center;margin-bottom:28px}
+.login-title{
+  font-family:'Conthrax','Arial Narrow',Arial,sans-serif;
+  font-size:1.45rem;font-weight:700;
+  color:#fff;margin-bottom:8px;
+}
+.login-sub{
+  font-size:.85rem;
+  color:rgba(255,255,255,.75);
+  line-height:1.5;
+}
+
+/* Formulario */
+.login-form{display:flex;flex-direction:column;gap:0}
+
+.field-label{
+  display:block;
+  font-size:.76rem;
+  color:rgba(255,255,255,.65);
+  margin-bottom:6px;
+}
+.field-row{
+  display:flex;justify-content:space-between;
+  align-items:center;margin-bottom:6px;
+}
+.field-row .field-label{margin-bottom:0}
+
+.forgot-link{
+  font-size:.76rem;
+  color:rgba(255,255,255,.85);
+  text-decoration:none;
+  transition:color .15s;
+}
+.forgot-link:hover{color:#fff}
+
+/* Inputs */
+input.login-input{
+  width:100%;
+  background:transparent;
+  border:1px solid rgba(255,255,255,.5);
+  border-radius:6px;
+  padding:11px 14px;
+  font-size:.9rem;
+  font-family:'Titillium Web',Arial,sans-serif;
+  color:#fff;
+  transition:border-color .15s,box-shadow .15s;
+  margin-bottom:16px;
+}
+input.login-input:hover{border-color:var(--cts-blue)}
+input.login-input:focus{
+  outline:none;
+  border-color:#fff;
+  border-width:2px;
+  box-shadow:0 0 0 3px rgba(255,255,255,.2);
+}
+.login-input::placeholder{color:rgba(255,255,255,.35)}
+
+/* Autofill — fondo transparente, sin el navy que forzaba el navegador */
+.login-input:-webkit-autofill,
+.login-input:-webkit-autofill:hover,
+.login-input:-webkit-autofill:focus{
+  -webkit-box-shadow:0 0 0 1000px transparent inset !important;
+  box-shadow:0 0 0 1000px transparent inset !important;
+  background-color:transparent !important;
+  -webkit-text-fill-color:#fff !important;
+  caret-color:#fff;
+  transition:background-color 99999s ease-in-out 0s;
+}
+
+/* Input contraseña + ojo */
+.pass-wrap{position:relative;margin-bottom:24px}
+.pass-wrap .login-input{margin-bottom:0;padding-right:46px}
+.eye-btn{
+  position:absolute;right:0;top:0;
+  height:100%;width:44px;
+  background:none;border:none;
+  color:rgba(255,255,255,.6);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:0 6px 6px 0;
+  transition:background .15s,color .15s;
+}
+.eye-btn:hover{background:rgba(255,255,255,.08);color:rgba(255,255,255,.8)}
+.eye-btn:focus{outline:none}
+
+/* Error */
+.login-error{
+  background:rgba(220,38,38,.15);
+  border:1px solid rgba(220,38,38,.4);
+  border-radius:6px;
+  color:#fca5a5;
+  font-size:.82rem;
+  padding:10px 14px;
+  margin-bottom:16px;
+  display:none;
+}
+.login-error.show{display:block}
+
+/* Botón */
+.submit-btn{
+  width:100%;
+  padding:13px;
+  background:var(--bd-focus);
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  font-family:var(--font-body);
+  font-size:.95rem;font-weight:700;
+  cursor:pointer;
+  transition:background .15s;
+  margin-bottom:12px;
+}
+.submit-btn:hover{background:var(--cts-blue-dark)}
+.submit-btn:active{transform:scale(.99)}
+
+/* Texto legal */
+.login-terms{
+  font-size:.72rem;
+  color:rgba(255,255,255,.55);
+  text-align:center;
+  line-height:1.55;
+}
+.login-terms a{color:rgba(255,255,255,.8);text-decoration:none}
+.login-terms a:hover{color:#fff}
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media(max-width:640px){
+  .login-form-col{padding:24px 20px}
+  .login-card{padding:28px 20px}
+}
+

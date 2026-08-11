@@ -43,7 +43,7 @@ const variantMap: Record<TypographyVariant, VariantConfig> = {
 }
 
 const colorMap: Record<TypographyColor, string> = {
-  default:  'text-[#1A1A1A]',
+  default:  'text-cts-black',
   primary:  'text-cts-blue',
   muted:    'text-cts-gray-dark',
   disabled: 'text-cts-gray',

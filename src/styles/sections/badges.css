@@ -1,0 +1,107 @@
+/* src/sections/badges/styles.css
+   BADGES (412-441) + STAT CARDS (442-458) + PROJECT CARDS (459-491),
+   plus the #badges-scoped .sec-full-content>.card override interleaved
+   in the COLOR CAROUSEL block (1128-1134).
+   NOTE: STAT CARDS and PROJECT CARDS are verified UNUSED anywhere in
+   the current HTML (#metrics uses the differently-named .stat-strip/
+   .stat-item/.kpi-card classes, not .stat-card/.proj-card). Placed
+   here (closest thematic fit) rather than #metrics or #nav-comp per
+   the target spec's own uncertainty about their owner — see final report.
+   CASCADE NOTE: STAT CARDS defines a *second*, conflicting .stat-icon
+   rule (48px) — sections/metrics/styles.css defines the LIVE .stat-icon
+   (44px, used by .stat-strip) that must win the cascade. Because
+   main.js initializes badges before metrics (page order), this file's
+   dead 48px rule stays bundled before metrics' 44px rule, preserving
+   the original visual result — do not reorder those two init() calls.
+*/
+/* ══ BADGES ═══════════════════════════════════ */
+.bgrow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.badge{
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--font-body);font-weight:600;
+  font-size:.82rem;padding:3px 9px;border-radius:var(--r-sm);
+}
+.bgsm{font-size:.72rem;padding:2px 7px}
+.dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+
+.bg-p{background:var(--cts-blue);color:#fff}
+.bg-p .dot{background:rgba(255,255,255,.7)}
+.bg-sec{background:var(--cts-blue-light);color:var(--cts-blue-dark)}
+.bg-sec .dot{background:var(--cts-blue-dark)}
+.bg-ok{background:#DCFCE7;color:#15803D}.bg-ok .dot{background:#16A34A}
+.bg-warn{background:#FEF3C7;color:#B45309}.bg-warn .dot{background:#D97706}
+.bg-err{background:#FEE2E2;color:#B91C1C}.bg-err .dot{background:#DC2626}
+.bg-info{background:#EFF6FF;color:var(--cts-blue)}.bg-info .dot{background:var(--cts-blue)}
+.bg-neu{background:var(--cts-gray-light);color:var(--cts-gray-dark)}.bg-neu .dot{background:var(--cts-gray)}
+.bg-alta{background:var(--p-alta-bg);color:var(--p-alta)}.bg-alta .dot{background:var(--p-alta)}
+.bg-media{background:var(--p-media-bg);color:var(--p-media)}.bg-media .dot{background:var(--p-media)}
+.bg-baja{background:var(--p-baja-bg);color:var(--p-baja)}.bg-baja .dot{background:var(--p-baja)}
+
+[data-theme="dark"] .bg-sec{background:rgba(137,174,220,.15);color:var(--cts-blue-light)}
+[data-theme="dark"] .bg-ok{background:rgba(22,163,74,.18);color:#4ADE80}
+[data-theme="dark"] .bg-warn{background:rgba(217,119,6,.18);color:#FCD34D}
+[data-theme="dark"] .bg-err{background:rgba(220,38,38,.18);color:#F87171}
+[data-theme="dark"] .bg-info{background:rgba(0,101,187,.2);color:var(--cts-blue-light)}
+[data-theme="dark"] .bg-neu{background:rgba(137,174,220,.1);color:var(--tx-secondary)}
+
+
+/* ══ STAT CARDS ═══════════════════════════════ */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border-top:1px solid var(--bd)}
+.stat-card{
+  padding:14px 12px;
+  display:flex;align-items:center;gap:16px;
+  border-bottom:1px solid var(--bd);
+  border-right:1px solid var(--bd);
+}
+.stat-card:hover{box-shadow:none}
+.stat-icon{
+  width:48px;height:48px;border-radius:var(--r-lg);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;flex-shrink:0;
+}
+.stat-val{font-family:var(--font-display);font-size:2rem;font-weight:700;line-height:1;color:var(--tx-primary)}
+.stat-lbl{font-size:.8rem;color:var(--tx-secondary);margin-top:3px}
+
+
+/* ══ PROJECT CARDS ════════════════════════════ */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.proj-card{
+  background:var(--bg-surface);border:1px solid var(--bd);
+  border-radius:var(--r-lg);box-shadow:var(--sh-sm);
+  overflow:hidden;
+  transition:box-shadow .2s,transform .15s;
+  cursor:pointer;
+}
+.proj-card:hover{box-shadow:var(--sh-lg);transform:translateY(-2px)}
+.proj-accent{height:5px;width:100%}
+.proj-body{padding:14px 16px}
+.proj-code{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:.7rem;font-weight:600;color:var(--tx-muted);
+  background:var(--bg-alt);padding:2px 8px;
+  border-radius:var(--r-sm);margin-bottom:9px;
+}
+.proj-code svg{color:var(--cts-blue)}
+[data-theme="dark"] .proj-code svg{color:var(--cts-blue-light)}
+.proj-header{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:12px}
+.proj-title{font-family:var(--font-display);font-weight:700;font-size:.9rem;color:var(--tx-primary);line-height:1.3}
+.proj-meta{display:flex;justify-content:space-between;font-size:.74rem;color:var(--tx-secondary);margin-bottom:6px}
+.proj-progress{height:4px;background:var(--bd);border-radius:var(--r-full);overflow:hidden;margin-bottom:5px}
+.proj-bar{height:100%;border-radius:var(--r-full);transition:width .4s}
+.proj-pct{font-size:.7rem;color:var(--tx-muted)}
+.proj-client{
+  margin-top:12px;padding-top:11px;border-top:1px solid var(--bd);
+  font-size:.74rem;
+}
+.proj-client .lbl{color:var(--tx-muted);font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:2px}
+.proj-client .val{color:var(--tx-primary);font-weight:600}
+
+
+/* #badges-scoped override (interleaved in COLOR CAROUSEL block) */
+#badges .sec-full-content>.card{
+  background:#DDE6F0;border-left:6px solid #00305c;
+  border-radius:var(--r-lg);box-shadow:var(--sh-sm);
+  padding:0 20px;
+}
+[data-theme="dark"] #badges .sec-full-content>.card{background:var(--bg-surface);border-left-color:var(--cts-blue-light)}
+#badges .ch{border-bottom:none}

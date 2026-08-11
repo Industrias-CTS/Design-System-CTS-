@@ -1,0 +1,9 @@
+/* src/molecules/section-banner/styles.css
+   No banner-only rules were found that aren't already covered by
+   src/styles/layout.css (.sec-full-banner, .cs-full-in, .cs-full-row,
+   .cs-full-label-col, .sec-n, .sec-title2, .sec-desc, .cs-hint, .sb-neutral,
+   and the per-3-section #typo/#nav-comp/#badges banner theming all live
+   there — see layout.css header comment for exact provenance).
+   Left intentionally empty/unimported; kept as a placeholder matching the
+   target src/ tree in case future banner-only styling is added here instead
+   of layout.css. */

@@ -1,0 +1,102 @@
+/* src/styles/base.css
+   Global/shared rules extracted verbatim from index.html's <style> block.
+   Provenance (original index.html line ranges): SWATCHES 23-41, PRIORITY SYSTEM 42-51,
+   SPACING 110-136, GRUPOS DE BOTONES 137-142, BOTON EXPANDIBLE 143-161, SCROLL REVEAL 1559-1564.
+   NOTE: SWATCHES / PRIORITY SYSTEM / SPACING are currently UNUSED in the live HTML (verified via grep)
+   — kept here per target spec since they are written as generic/reusable utilities, not section-owned.
+   NOTE: GRUPOS DE BOTONES (.mc-grid/.btn-row) and BOTON EXPANDIBLE (.btn-expand*) were moved HERE
+   instead of sections/buttons/styles.css because grep confirms .mc-grid is used by buttons AND tips,
+   and .btn-expand is used by buttons AND typography — see final report for details.
+*/
+/* ══ SWATCHES ═════════════════════════════════ */
+.sw-group{display:flex;flex-direction:column;gap:10px}
+.sw{border-radius:var(--r-md);overflow:hidden;box-shadow:var(--sh-sm);border:1px solid var(--bd)}
+.sw-col{height:64px}
+.sw-info{background:var(--bg-surface);padding:9px 13px;border-top:1px solid var(--bd)}
+.sw-name{font-weight:700;font-size:.82rem;color:var(--tx-primary)}
+.sw-hex{font-size:.72rem;font-family:monospace;color:var(--tx-muted)}
+.sw-use{font-size:.68rem;color:var(--tx-secondary);margin-top:1px}
+
+/* status row */
+.st-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.st-chip{border-radius:var(--r-md);padding:12px;text-align:center}
+.st-chip .sl{font-weight:700;font-size:.82rem}
+.st-chip .sh{font-size:.7rem;font-family:monospace;margin-top:2px;opacity:.85}
+[data-theme="dark"] .st-ok  {background:rgba(22,163,74,.18)!important}
+[data-theme="dark"] .st-warn{background:rgba(217,119,6,.18)!important}
+[data-theme="dark"] .st-err {background:rgba(220,38,38,.18)!important}
+[data-theme="dark"] .st-inf {background:rgba(0,101,187,.18)!important}
+
+
+/* ══ PRIORITY SYSTEM ══════════════════════════ */
+.p-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+.p-chip{border-radius:var(--r-md);padding:14px;text-align:center}
+.p-alta  {background:var(--p-alta-bg)}
+.p-media {background:var(--p-media-bg)}
+.p-baja  {background:var(--p-baja-bg)}
+.p-chip .pl{font-weight:700;font-size:.9rem}
+.p-chip .px{font-size:.72rem;font-family:monospace;margin-top:2px;opacity:.85}
+.p-chip .pbar{height:5px;border-radius:3px;margin-top:8px;width:70%}
+
+
+/* ══ SPACING ══════════════════════════════════ */
+.sp-row{display:flex;align-items:center;gap:12px;padding:6px 0;border-bottom:1px solid var(--bd)}
+.sp-row:last-child{border-bottom:none}
+.sp-label{min-width:72px;font-family:monospace;font-size:.76rem;color:var(--tx-secondary)}
+.sp-wrap{flex:1}
+.sp-bar{background:var(--cts-blue-light);border-radius:3px;height:16px}
+[data-theme="dark"] .sp-bar{background:rgba(137,174,220,.25)}
+.sp-val{min-width:40px;font-size:.76rem;color:var(--cts-blue);font-weight:700;font-family:monospace}
+[data-theme="dark"] .sp-val{color:var(--cts-blue-light)}
+
+.r-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:10px}
+.r-demo{
+  background:rgba(137,174,220,.18);border:1px solid var(--bd);
+  color:var(--cts-blue);height:52px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.68rem;font-weight:700;
+}
+[data-theme="dark"] .r-demo{color:var(--cts-blue-light);background:rgba(137,174,220,.08)}
+.sh-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:18px}
+.sh-demo{
+  background:var(--bg-surface);height:68px;border-radius:var(--r-lg);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+}
+.sh-name{font-weight:700;font-size:.78rem;color:var(--tx-primary)}
+.sh-tok{font-size:.66rem;font-family:monospace;color:var(--cts-blue)}
+[data-theme="dark"] .sh-tok{color:var(--cts-blue-light)}
+
+
+/* ══ GRUPOS DE BOTONES ════════════════════════ */
+.mc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.mc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.mc-grid{grid-template-columns:1fr}}
+.btn-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+
+
+/* ══ BOTÓN EXPANDIBLE (ícono → etiqueta en hover) ══ */
+.btn-expand{
+  display:inline-flex;align-items:center;gap:0;
+  background:transparent;border:none;border-radius:var(--r-md);
+  padding:9px;cursor:pointer;color:var(--cts-blue);
+  transition:background .2s var(--ease),padding .3s var(--ease);
+}
+.btn-expand:hover{background:rgba(0,101,187,.12);padding:9px 14px 9px 9px}
+[data-theme="dark"] .btn-expand{color:var(--cts-blue-light)}
+[data-theme="dark"] .btn-expand:hover{background:rgba(137,174,220,.15)}
+.btn-expand svg{flex-shrink:0}
+.btn-expand-label{
+  max-width:0;opacity:0;overflow:hidden;white-space:nowrap;
+  font-family:var(--font-body);font-size:.76rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.05em;
+  transition:max-width .3s var(--ease),opacity .2s var(--ease),margin-left .3s var(--ease);
+}
+.btn-expand:hover .btn-expand-label{max-width:160px;opacity:1;margin-left:8px}
+
+
+/* ══ SCROLL REVEAL — fade + slide sutil al entrar en pantalla ══ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+}
