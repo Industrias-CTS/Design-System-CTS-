@@ -6,11 +6,13 @@ Sistema de diseño oficial de **Industrias CTS** — identidad visual unificada 
 
 ## Vistas rápidas
 
-| Archivo | Descripción |
-|---------|-------------|
-| [`preview.html`](preview.html) | Guía de componentes UI — código, demos en vivo, buenas prácticas |
-| [`recursos.html`](recursos.html) | Descarga de logos, íconos de producto y tipografías |
-| [`login.html`](login.html) | Página de inicio de sesión — referencia visual standalone |
+Un único punto de entrada: [`index.html`](index.html). Las tres vistas viven en la misma página y se navegan por hash, sin recargar:
+
+| Hash | Descripción |
+|------|-------------|
+| `index.html` (o `#colors`, `#typo`, `#spacing`, …) | Guía de componentes UI — código, demos en vivo, buenas prácticas |
+| `index.html#recursos` | Descarga de logos, íconos de producto y tipografías |
+| `index.html#login` | Página de inicio de sesión — referencia visual standalone |
 
 ---
 
@@ -46,7 +48,8 @@ Design_System/
 │   │   └── svg/               # SVGs por producto y variante
 │   ├── logos/
 │   │   └── ...                # Logo CTS en 4 variantes × 4 formatos
-│   └── lean3.jpg              # Imagen de fondo para página de login
+│   ├── img/                    # Imágenes de UI (header de modales, etc.)
+│   └── styles.css              # Estilos compartidos (tiles de logos/íconos, tokens legacy)
 ├── components/
 │   ├── Button.tsx
 │   ├── Typography.tsx
@@ -62,9 +65,7 @@ Design_System/
 ├── tokens/
 │   └── index.css              # CSS custom properties de marca
 ├── tailwind.config.js         # Extensión Tailwind con tokens CTS
-├── preview.html               # Guía de componentes (HTML estático, modo claro/oscuro)
-├── recursos.html              # Descarga de recursos (HTML estático, modo claro/oscuro)
-└── login.html                 # Página de login — referencia visual standalone
+└── index.html                 # Punto de entrada único — Design System + Login + Recursos (vistas por hash)
 ```
 
 ---
@@ -79,6 +80,8 @@ Design_System/
 | Gris Oscuro | `#646464` | Texto secundario, subtítulos |
 | Gris Medio | `#8F8F8F` | Texto deshabilitado, placeholders |
 | Gris Claro | `#C8C8C8` | Bordes, separadores |
+
+Estos colores de marca son fijos — no cambian entre modo claro y oscuro. También existen colores de estado (éxito/advertencia/error/info) y de prioridad (alta/media/baja), y los tokens de texto/fondo/borde sí tienen variantes por tema. Detalle completo en [docs/01-colors.md](docs/01-colors.md).
 
 ---
 
@@ -179,9 +182,9 @@ export default function Page() {
 
 ## Modo claro / oscuro
 
-Todas las vistas HTML soportan modo claro y oscuro mediante `data-theme` en `<html>` y `localStorage`. El botón de toggle está en la barra de navegación de cada página.
+Toda la página soporta modo claro y oscuro mediante `data-theme` en `<html>` y `localStorage`. El botón de toggle está en la barra de navegación única, compartida por las tres vistas. La vista de Login mantiene su propia estética oscura independiente del toggle global.
 
-Los tokens que cambian según tema están definidos en bloques `[data-theme="light"]` y `[data-theme="dark"]` dentro de cada archivo HTML.
+Los tokens que cambian según tema están definidos en bloques `[data-theme="light"]` y `[data-theme="dark"]` dentro de `index.html`.
 
 ---
 
@@ -191,3 +194,5 @@ Los tokens que cambian según tema están definidos en bloques `[data-theme="lig
 |---------|--------|
 | 1.0.0 | Lanzamiento inicial — tokens, componentes base, logos, íconos, guía de componentes, página de recursos |
 | 1.1.0 | Login standalone (`login.html`), soporte modo oscuro en todas las vistas, fuentes locales sin dependencias externas |
+| 1.2.0 | Unificación en `index.html` — punto de entrada único, vistas Design System / Login / Recursos por hash, sin recarga de página |
+| 1.3.0 | Limpieza técnica de `index.html`: fix de bug de especificidad CSS (panel de Tipografías siempre visible), accesibilidad (tabs con `role`/`aria-selected`, labels, alt text), logos/íconos de Recursos pasados a datos + render JS (antes ~260 líneas de HTML repetido a mano), overrides CSS por ID consolidados en clases compartidas, scripts envueltos en IIFE, helper `watchOnScreen()` para deduplicar el patrón de pausar animaciones fuera de viewport |

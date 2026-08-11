@@ -39,6 +39,18 @@
 
 ---
 
+## Colores de prioridad
+
+Usados en badges de prioridad (Alta / Media / Baja). No cambian entre modo claro y oscuro.
+
+| Prioridad | Token | HEX | Fondo (token bg) |
+|-----------|-------|-----|-------------------|
+| Alta | `--cts-priority-high` | `#EF4444` | `--cts-priority-high-bg` — `rgba(239,68,68,.15)` |
+| Media | `--cts-priority-medium` | `#F59E0B` | `--cts-priority-medium-bg` — `rgba(245,158,11,.15)` |
+| Baja | `--cts-priority-low` | `#22C55E` | `--cts-priority-low-bg` — `rgba(34,197,94,.15)` |
+
+---
+
 ## Tokens semánticos
 
 Los tokens semánticos conectan el significado con el valor visual. **Siempre usar semánticos en componentes**, no los valores crudos.
@@ -55,6 +67,21 @@ Los tokens semánticos conectan el significado con el valor visual. **Siempre us
 | `--cts-color-bg-subtle` | `#F4F7FB` | Fondo de página |
 | `--cts-color-border` | `#C8C8C8` | Borde estándar |
 | `--cts-color-border-focus` | `#0065BB` | Borde al enfocar |
+
+### Modo oscuro
+
+Se activa con `[data-theme="dark"]` en `<html>` y sobrescribe estos tokens (los de marca — azules, grises, prioridad — no cambian):
+
+| Token | Claro | Oscuro |
+|-------|-------|--------|
+| `--cts-color-text` | `#1A1A1A` | `#FFFFFF` |
+| `--cts-color-text-muted` | `#646464` | `#B4C4DC` |
+| `--cts-color-text-disabled` | `#8F8F8F` | `#9FB6CC` |
+| `--cts-color-bg` | `#FFFFFF` | `#2E4A78` |
+| `--cts-color-bg-subtle` | `#F4F7FB` | `#1F3252` |
+| `--cts-color-border` | `#C8C8C8` | `#2D3F5C` |
+| `--cts-color-border-focus` | `#0065BB` | `#008AFF` |
+| `--cts-error` | `#DC2626` | `#F87171` |
 
 ---
 

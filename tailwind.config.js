@@ -33,9 +33,9 @@ module.exports = {
         '2xs': ['0.625rem', { lineHeight: '1rem' }],
       },
       boxShadow: {
-        'cts-sm': '0 1px 2px 0 rgba(0, 77, 158, 0.08)',
-        'cts-md': '0 4px 6px -1px rgba(0, 77, 158, 0.10), 0 2px 4px -1px rgba(0, 77, 158, 0.06)',
-        'cts-lg': '0 10px 15px -3px rgba(0, 77, 158, 0.10), 0 4px 6px -2px rgba(0, 77, 158, 0.05)',
+        'cts-sm': '0 1px 3px rgba(0, 77, 158, 0.08)',
+        'cts-md': '0 4px 8px rgba(0, 77, 158, 0.10), 0 2px 4px rgba(0, 77, 158, 0.06)',
+        'cts-lg': '0 10px 20px rgba(0, 77, 158, 0.10), 0 4px 8px rgba(0, 77, 158, 0.05)',
         'cts-xl': '0 20px 25px -5px rgba(0, 77, 158, 0.10), 0 10px 10px -5px rgba(0, 77, 158, 0.04)',
       },
       borderRadius: {

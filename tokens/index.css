@@ -80,6 +80,17 @@
   --cts-info-light:       #EFF6FF;
 
   /* ────────────────────────────────────────────
+     COLORES — PRIORIDAD (badges Alta/Media/Baja)
+     ──────────────────────────────────────────── */
+
+  --cts-priority-high:       #EF4444;
+  --cts-priority-high-bg:    rgba(239, 68, 68, 0.15);
+  --cts-priority-medium:     #F59E0B;
+  --cts-priority-medium-bg:  rgba(245, 158, 11, 0.15);
+  --cts-priority-low:        #22C55E;
+  --cts-priority-low-bg:     rgba(34, 197, 94, 0.15);
+
+  /* ────────────────────────────────────────────
      TIPOGRAFÍA — FAMILIAS
      ──────────────────────────────────────────── */
 
@@ -152,11 +163,11 @@
      SOMBRAS — TONO AZUL CTS
      ──────────────────────────────────────────── */
 
-  --cts-shadow-sm:  0 1px 2px 0 rgba(0, 77, 158, 0.08);
-  --cts-shadow-md:  0 4px 6px -1px rgba(0, 77, 158, 0.10),
-                    0 2px 4px -1px rgba(0, 77, 158, 0.06);
-  --cts-shadow-lg:  0 10px 15px -3px rgba(0, 77, 158, 0.10),
-                    0 4px 6px -2px rgba(0, 77, 158, 0.05);
+  --cts-shadow-sm:  0 1px 3px rgba(0, 77, 158, 0.08);
+  --cts-shadow-md:  0 4px 8px rgba(0, 77, 158, 0.10),
+                    0 2px 4px rgba(0, 77, 158, 0.06);
+  --cts-shadow-lg:  0 10px 20px rgba(0, 77, 158, 0.10),
+                    0 4px 8px rgba(0, 77, 158, 0.05);
   --cts-shadow-xl:  0 20px 25px -5px rgba(0, 77, 158, 0.10),
                     0 10px 10px -5px rgba(0, 77, 158, 0.04);
 
@@ -195,4 +206,32 @@
   --cts-gutter-sm:  var(--cts-space-4);
   --cts-gutter-md:  var(--cts-space-6);
   --cts-gutter-lg:  var(--cts-space-8);
+}
+
+/* ==============================================
+   MODO OSCURO — sobrescribe los tokens semánticos
+   que cambian según tema. Los tokens de marca fijos
+   (--cts-blue, --cts-gray, --cts-priority-*, etc.)
+   no cambian entre temas.
+   ============================================== */
+
+[data-theme="dark"] {
+  --cts-color-text:           #FFFFFF;
+  --cts-color-text-muted:     #B4C4DC;
+  --cts-color-text-disabled:  #9FB6CC;
+
+  --cts-color-bg:             #2E4A78;
+  --cts-color-bg-subtle:      #1F3252;
+  --cts-color-border:         #2D3F5C;
+  --cts-color-border-focus:   #008AFF;
+
+  --cts-error:            #F87171;
+
+  --cts-shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.4);
+  --cts-shadow-md:  0 4px 8px rgba(0, 0, 0, 0.5),
+                    0 2px 4px rgba(0, 0, 0, 0.3);
+  --cts-shadow-lg:  0 10px 20px rgba(0, 0, 0, 0.6),
+                    0 4px 8px rgba(0, 0, 0, 0.4);
+
+  color-scheme: dark;
 }

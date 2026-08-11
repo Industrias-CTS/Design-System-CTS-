@@ -145,6 +145,27 @@ Contenedor de contenido. Compuesto por Card + CardHeader + CardBody + CardFooter
 | `variant` | `'default' \| 'elevated' \| 'outlined' \| 'filled'` | `'default'` | Estilo visual |
 | `onClick` | `() => void` | — | Convierte en tarjeta interactiva |
 
+### Props de CardHeader
+
+| Prop | Tipo | Default | Descripción |
+|------|------|---------|-------------|
+| `title` | `string` | — | Requerido. Título de la tarjeta |
+| `subtitle` | `string` | — | Texto secundario debajo del título |
+| `action` | `ReactNode` | — | Elemento a la derecha (ej. un botón) |
+
+### Props de CardBody
+
+| Prop | Tipo | Default | Descripción |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | — | Requerido. Contenido de la tarjeta |
+| `noPadding` | `boolean` | `false` | Quita el padding interno — usar cuando el contenido (tabla, imagen) necesita llegar al borde |
+
+### Props de CardFooter
+
+| Prop | Tipo | Default | Descripción |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | — | Requerido. Contenido del pie (ej. botones de acción) |
+
 ### Variantes
 
 | Variante | Uso |
