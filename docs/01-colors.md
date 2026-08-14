@@ -17,6 +17,7 @@
 | Gris Medio | `--cts-gray` | `cts-gray` | `#8F8F8F` | Texto deshabilitado, íconos secundarios, placeholders |
 | Gris Claro | `--cts-gray-light` | `cts-gray-light` | `#C8C8C8` | Bordes, separadores, fondos de inputs |
 | Gris Oscuro | `--cts-gray-dark` | `cts-gray-dark` | `#646464` | Texto secundario, subtítulos, metadata |
+| Gris Cálido *(opcional)* | `--cts-gray-warm` | `cts-gray-warm` | `#756F6A` | Alternativa de gris para textos/íconos secundarios cuando se busca un tono más cálido |
 
 ### Base
 
@@ -25,6 +26,7 @@
 | Blanco | `--cts-white` | `#FFFFFF` | Fondos de tarjetas, fondos principales |
 | Negro CTS | `--cts-black` | `#1A1A1A` | Texto principal |
 | Fondo Sutil | `--cts-bg-subtle` | `#F4F7FB` | Fondos de páginas, fondos de tablas alternas |
+| Fondo Alternativo *(opcional)* | `--cts-bg-alt` | `#F0EFEB` | Alternativa de fondo principal para modo claro |
 
 ---
 

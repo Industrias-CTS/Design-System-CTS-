@@ -11,6 +11,7 @@ export function initColors() {
   // Color carousel — carrusel estilo Apple Music con los 6 azules de marca
   const CS_PALETTE=[
     {name:'Fondo de página',light:'#e8f0f9',dark:'#1F3252',use:'pageBg — Fondo general de la página'},
+    {name:'Fondo alternativo',light:'#F0EFEB',dark:'#1F3252',use:'bgAlt — Alternativa de fondo principal (modo claro)'},
     {name:'Texto principal',light:'#0d1e38',dark:'#ffffff',use:'text — Color de texto principal'},
     {name:'Texto secundario',light:'#3a5278',dark:'#b4c4dc',use:'textSecondary — Subtítulos y texto de apoyo'},
     {name:'Texto deshabilitado',light:'#5a7a9f',dark:'#93a8c9',use:'textDisabled — Texto e íconos deshabilitados'},
@@ -18,6 +19,7 @@ export function initColors() {
     {name:'Primario',light:'#0065BB',dark:'#008AFF',use:'primary — Color de foco y estados interactivos'},
     {name:'Color de enlace',light:'#0065BB',dark:'#4a9eff',use:'linkColor — Enlaces de texto'},
     {name:'Color de error',light:'#dc2626',dark:'#f87171',use:'errorColor — Estados de error y bloqueo'},
+    {name:'Gris cálido',light:'#756F6A',dark:'#756F6A',use:'grayWarm — Gris opcional para texto/íconos secundarios'},
   ];
   function csHex(item,mode){return item.hex||item[mode]}
   const csCarousel=document.getElementById('cs-carousel');

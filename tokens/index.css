@@ -44,10 +44,12 @@
   --cts-gray:         #8F8F8F;
   --cts-gray-light:   #C8C8C8;
   --cts-gray-dark:    #646464;
+  --cts-gray-warm:    #756F6A; /* gris opcional */
 
   --cts-white:        #FFFFFF;
   --cts-black:        #1A1A1A;
   --cts-bg-subtle:    #F4F7FB;
+  --cts-bg-alt:       #F0EFEB; /* alternativa para fondos principales, modo claro */
 
   /* ────────────────────────────────────────────
      COLORES — SEMÁNTICOS

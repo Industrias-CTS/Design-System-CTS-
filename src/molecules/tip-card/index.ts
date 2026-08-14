@@ -50,8 +50,8 @@ export const TIPS = [
   },
   {
     icon: '<polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>',
-    title: 'Cuida el peso de tu página',
-    text: 'Comprime imágenes, evita animaciones o librerías JS de más y carga solo las fuentes/íconos que uses. Una pantalla nueva pesada arrastra tiempos de carga para todo el sistema.',
+    title: 'La identidad se sigue, no se clona al pixel',
+    text: 'Aquí está la guía para seguir la identidad de CTS, úsala si así lo prefieren. Si no se van a copiar los colores tal cual, que al menos se parezcan a la paleta de marca. La tipografía (Conthrax / Titillium Web) sí hay que ponerla tal cual. Para lo demás (radios, sombras, espaciados), en lo posible usa las guías del sistema.',
   },
 ];
 
